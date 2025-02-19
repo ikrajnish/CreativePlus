@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import BackgroundVideo from '../assets/background2.mp4';
+import backgroundVideo from '../assets/back.mp4';
 import { Services } from "./Services";
 import { About } from "./About";
 import { Contact } from "./Contact";
@@ -73,7 +73,7 @@ export function Home() {
 
       <section className="relative h-screen overflow-hidden" id="home">
         <video 
-          src={BackgroundVideo} 
+          src={backgroundVideo} 
           autoPlay 
           loop 
           muted 
