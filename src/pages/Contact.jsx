@@ -1,6 +1,6 @@
 import React, { useState } from "react"; 
 import { Button } from "../components/Button"; 
-import Sms from "../assets/Sms.jpg";
+import Sms from "../assets/mail.gif";
 
 const Modal = ({ isOpen, onClose, title, content }) => {
   if (!isOpen) return null;
@@ -26,20 +26,22 @@ export function Contact() {
   };
 
   return (
-    <section className="container mx-auto p-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start ">
-      <div>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-600 leading-tight mb-6">
-          HOW CAN WE HELP YOU?
-        </h2>
-        <p className="text-slate-700 text-lg mb-4">
-          Questions, collabs, inquiries? Use the contact form, and we will get in touch, or mail us at 
-          <a href="mailto:info@creativeplusstudio.com" className="text-orange-500 font-medium"> info@creativeplusstudio.com</a>. 
-          Need help? Go to our <a href="#" className="text-orange-500 font-medium">Contact Us</a> page.
-        </p>
-        <img src={Sms} alt="Contact" className="w-full rounded-lg mt-6 shadow-md" />
+    <section className="container mx-auto p-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+      <div className="flex flex-col justify-between">
+        <div>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-600 leading-tight mb-6">
+            HOW CAN WE HELP YOU?
+          </h2>
+          <p className="text-slate-700 text-lg mb-4">
+            Questions, collabs, inquiries? Use the contact form, and we will get in touch, or mail us at 
+            <a href="mailto:info@creativeplusstudio.com" className="text-orange-500 font-medium"> info@creativeplusstudio.com</a>. 
+            Need help? Go to our <a href="#" className="text-orange-500 font-medium">Contact Us</a> page.
+          </p>
+        </div>
+        <img src={Sms} alt="Contact" className="w-full h-full max-h-[550px] object-cover rounded-lg mt-6 shadow-md" />
       </div>
 
-      <div className="p-8 rounded-2xl shadow-lg">
+      <div className="p-8 rounded-2xl shadow-lg flex flex-col justify-center">
         <h3 className="text-3xl font-bold text-orange-500 mb-6">Send Request To Us</h3>
 
         <form action="https://formspree.io/f/xvgzvjrq" method="POST">

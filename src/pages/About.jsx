@@ -25,24 +25,6 @@ export function About() {
       role: "Video Editor & Animator",
       image: AmanImage,
       bio: "Bringing stories to life with professional video editing and dynamic animations."
-    },
-    {
-      name: "Kanan Verma",
-      role: "Digital Marketing Specialist",
-      image: KananImage,
-      bio: "Strategizing effective marketing campaigns to grow our clients' online presence."
-    },
-    {
-      name: "Kanan Verma",
-      role: "Digital Marketing Specialist",
-      image: KananImage,
-      bio: "Strategizing effective marketing campaigns to grow our clients' online presence."
-    },
-    {
-      name: "Kanan Verma",
-      role: "Digital Marketing Specialist",
-      image: KananImage,
-      bio: "Strategizing effective marketing campaigns to grow our clients' online presence."
     }
   ];
 
