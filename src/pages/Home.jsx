@@ -86,7 +86,7 @@ export function Home() {
   />
 
   {/* Button (Bottom Center of Video, Hidden on Desktop) */}
-  <div className="absolute bottom-4 w-full flex justify-center">
+  <div className="absolute inset-0 flex items-center justify-center">
     <Button 
       text="Get in Touch" 
       onClick={() => navigate('/contact')}  
