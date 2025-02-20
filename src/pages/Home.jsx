@@ -72,27 +72,28 @@ export function Home() {
       </div>
 
       <section 
-        className="relative w-full h-auto  overflow-hidden flex flex-col items-center" 
-        id="home"
-      >
-        {/* Background Video */}
-        <video 
-          src={backgroundVideo} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-auto object-contain md:object-cover lg:object-contain"
-        />
+  className="relative w-full h-auto overflow-hidden flex flex-col items-center" 
+  id="home"
+>
+  {/* Background Video */}
+  <video 
+    src={backgroundVideo} 
+    autoPlay 
+    loop 
+    muted 
+    playsInline
+    className="w-screen h-auto max-h-[87vh] object-contain md:object-cover lg:object-cover"
+  />
 
-  {/* Button (Hidden on Desktop, Visible on Mobile & Tablet) */}
-  <div className="w-full flex justify-center mt-6 md:mt-8 lg:mt-10">
+  {/* Button (Bottom Center of Video, Hidden on Desktop) */}
+  <div className="absolute bottom-4 w-full flex justify-center">
     <Button 
       text="Get in Touch" 
       onClick={() => navigate('/contact')}  
     />
   </div>
 </section>
+
 
 
 
