@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
-import backgroundVideo from '../assets/back.mp4';
+import backgroundVideo from '../assets/home.mp4';
 import { Services } from "./Services";
 import { About } from "./About";
 import { Contact } from "./Contact";
@@ -71,17 +71,33 @@ export function Home() {
         ></div>
       </div>
 
-      <section className="relative h-screen overflow-hidden" id="home">
+      <section 
+        className="relative w-full h-auto  overflow-hidden flex flex-col items-center" 
+        id="home"
+      >
+        {/* Background Video */}
         <video 
           src={backgroundVideo} 
           autoPlay 
           loop 
           muted 
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="w-full h-auto object-contain md:object-cover lg:object-contain"
         />
+
+  {/* Button (Hidden on Desktop, Visible on Mobile & Tablet) */}
+  <div className="w-full flex justify-center mt-6 md:mt-8 lg:mt-10">
+    <Button 
+      text="Get in Touch" 
+      onClick={() => navigate('/contact')}  
+    />
+  </div>
+</section>
+
+
+
         
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-slate-900 bg-opacity-50"></div>
+        {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-slate-900 bg-opacity-50"></div>
 
         <div className="relative z-10 text-center text-white py-20 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center h-full space-y-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center">
@@ -116,13 +132,8 @@ export function Home() {
               {services[currentService].description}
             </motion.p>
           </AnimatePresence>
-
-          <Button 
-            text="Get in Touch" 
-            onClick={() => navigate('/contact')}  
-          />
         </div>
-      </section>
+      </section> */}
 
       <motion.section id="services" className="py-16 px-4 sm:px-6 lg:px-8" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
         <Services />
