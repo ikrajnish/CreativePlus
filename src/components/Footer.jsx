@@ -24,21 +24,21 @@ export const Footer = React.memo(() => {
         <div className="flex flex-col items-center md:items-end">
           <p className="text-slate-800 font-semibold mb-3">CONNECT WITH US</p>
           <div className="flex space-x-4">
-            <a href="https://linkedin.com/company/creativeplusstudio" 
+            <a href="https://www.linkedin.com/in/creative-plus-studio-23958934b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                aria-label="Follow us on LinkedIn" 
                target="_blank" 
                rel="noopener noreferrer nofollow" 
                className="text-orange-700 text-xl hover:text-orange-900 transition-transform transform hover:scale-110">
               <FaLinkedin />
             </a>
-            <a href="https://facebook.com/creativeplusstudio" 
+            <a href="https://www.facebook.com/share/1E1KJ9b2Hk/" 
                aria-label="Follow us on Facebook" 
                target="_blank" 
                rel="noopener noreferrer nofollow" 
                className="text-orange-700 text-xl hover:text-orange-900 transition-transform transform hover:scale-110">
               <FaFacebook />
             </a>
-            <a href="https://instagram.com/creativeplusstudio" 
+            <a href="https://www.instagram.com/creativeplusstudio23?igsh=MW1od21wZjV6NDhqNg==" 
                aria-label="Follow us on Instagram" 
                target="_blank" 
                rel="noopener noreferrer nofollow" 

@@ -27,16 +27,24 @@ export default function Description() {
         <div>
           <h4 className="text-lg font-semibold text-slate-800 mb-4">COMPANY</h4>
           <ul className="text-slate-600 space-y-2">
-            <li><a href="#" className="hover:text-orange-500 transition">About Us</a></li>
+            <li><a href="/about" className="hover:text-orange-500 transition">About Us</a></li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-lg font-semibold text-slate-800 mb-4">SERVICES</h4>
           <ul className="text-slate-600 space-y-2">
-            {["Graphic Designing", "Video Editing", "2D & 3D Animation", "3D Modeling", "Web Designing", "Digital Marketing"].map(service => (
-              <li key={service}>
-                <a href="#" className="hover:text-orange-500 transition">{service}</a>
+            {[
+              { title: "Graphic Design", link: "/graphic-design"}, 
+              { title: "2D Animation", link: "/animation"}, 
+              { title: "Video Editing", link: "/video-editing"},
+              { title: "3D Modeling", link: "/3d-modeling"},
+              { title: "Digital Marketing", link: "/digital-marketing"},
+              { title: "Website Development", link: "/web-development"},
+            
+              ].map((service) => (
+              <li key={service.link}>
+                <a href={service.link} className="hover:text-orange-500 transition">{service.title}</a>
               </li>
             ))}
           </ul>

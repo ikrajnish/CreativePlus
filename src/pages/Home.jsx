@@ -72,27 +72,27 @@ export function Home() {
       </div>
 
       <section 
-  className="relative w-full h-auto overflow-hidden flex flex-col items-center" 
-  id="home"
->
-  {/* Background Video */}
-  <video 
-    src={backgroundVideo} 
-    autoPlay 
-    loop 
-    muted 
-    playsInline
-    className="w-screen h-auto max-h-[87vh] object-contain md:object-cover lg:object-cover"
-  />
+        className="relative w-full h-auto overflow-hidden flex flex-col items-center" 
+        id="home"
+      >
+      {/* Background Video */}
+        <video 
+          src={backgroundVideo} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-screen h-auto max-h-[87vh] object-contain md:object-cover lg:object-cover"
+        />
 
-  {/* Button (Bottom Center of Video, Hidden on Desktop) */}
-  <div className="absolute inset-0 flex items-center justify-center">
-    <Button 
-      text="Get in Touch" 
-      onClick={() => navigate('/contact')}  
-    />
-  </div>
-</section>
+        {/* Button (Bottom Center of Video, Hidden on Desktop) */}
+        <div className="relative mt-36 lg:-mt-6 ">
+          <Button 
+            text="Get in Touch" 
+            onClick={() => navigate('/contact')}  
+         />
+        </div>
+       </section>
 
 
 
