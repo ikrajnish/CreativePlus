@@ -4,9 +4,11 @@ import { FaPhone } from "react-icons/fa";
 
 export default function Description() {
   return (
-    <div className=" text-slate-800 py-12 px-6 md:px-16 ">
+    <section
+      className="w-full px-6 md:px-16 lg:px-24 py-12 md:py-20 lg:py-24 overflow-hidden"
+      id="description-section"
+    >
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
-
         {/* Company Overview */}
         <div className="md:col-span-2">
           <div className="flex items-center mb-4">
@@ -15,7 +17,7 @@ export default function Description() {
             </div>
           </div>
           <p className="text-slate-600 mb-4">
-            Creative Plus is a dynamic digital agency known for its innovative solutions and strong values. 
+            Creative Plus is a dynamic digital agency known for its innovative solutions and strong values.
             We deliver impactful marketing strategies to help your business grow.
           </p>
           <h4 className="text-4xl sm:text-5xl font-extrabold text-orange-600 leading-tight mb-6">
@@ -27,7 +29,11 @@ export default function Description() {
         <div>
           <h4 className="text-lg font-semibold text-slate-800 mb-4">COMPANY</h4>
           <ul className="text-slate-600 space-y-2">
-            <li><a href="/about" className="hover:text-orange-500 transition">About Us</a></li>
+            <li>
+              <a href="/about" className="hover:text-orange-500 transition">
+                About Us
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -35,16 +41,17 @@ export default function Description() {
           <h4 className="text-lg font-semibold text-slate-800 mb-4">SERVICES</h4>
           <ul className="text-slate-600 space-y-2">
             {[
-              { title: "Graphic Design", link: "/graphic-design"}, 
-              { title: "2D Animation", link: "/animation"}, 
-              { title: "Video Editing", link: "/video-editing"},
-              { title: "3D Modeling", link: "/3d-modeling"},
-              { title: "Digital Marketing", link: "/digital-marketing"},
-              { title: "Website Development", link: "/web-development"},
-            
-              ].map((service) => (
+              { title: "Graphic Design", link: "/graphic-design" },
+              { title: "2D Animation", link: "/animation" },
+              { title: "Video Editing", link: "/video-editing" },
+              { title: "3D Modeling", link: "/3d-modeling" },
+              { title: "Digital Marketing", link: "/digital-marketing" },
+              { title: "Website Development", link: "/web-development" },
+            ].map((service) => (
               <li key={service.link}>
-                <a href={service.link} className="hover:text-orange-500 transition">{service.title}</a>
+                <a href={service.link} className="hover:text-orange-500 transition">
+                  {service.title}
+                </a>
               </li>
             ))}
           </ul>
@@ -53,9 +60,11 @@ export default function Description() {
         <div>
           <h4 className="text-lg font-semibold text-slate-800 mb-4">CAREERS</h4>
           <ul className="text-slate-600 space-y-2">
-            {["Life at CreativePlusStudio", "Join Us"].map(item => (
+            {["Life at CreativePlusStudio", "Join Us"].map((item) => (
               <li key={item}>
-                <a href="#" className="hover:text-orange-500 transition">{item}</a>
+                <a href="#" className="hover:text-orange-500 transition">
+                  {item}
+                </a>
               </li>
             ))}
           </ul>
@@ -83,8 +92,7 @@ export default function Description() {
             </div>
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
   );
 }
