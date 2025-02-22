@@ -71,11 +71,7 @@ export function Home() {
         ></div>
       </div>
 
-      <section 
-        className="relative w-full h-auto overflow-hidden flex flex-col items-center" 
-        id="home"
-      >
-      {/* Background Video */}
+      <section className="relative w-full h-auto flex flex-col items-center overflow-hidden" id="home">
         <video 
           src={backgroundVideo} 
           autoPlay 
@@ -85,72 +81,22 @@ export function Home() {
           className="w-screen h-auto max-h-[87vh] object-contain md:object-cover lg:object-cover"
         />
 
-        {/* Button (Bottom Center of Video, Hidden on Desktop) */}
-        <div className="relative mt-36 lg:-mt-6 ">
-          <Button 
-            text="Get in Touch" 
-            onClick={() => navigate('/contact')}  
-         />
+        <div className="relative lg:absolute mt-36 lg:bottom-4">
+          <Button text="Get in Touch" onClick={() => navigate('/contact')} />
         </div>
-       </section>
-
-
-
-
-        
-        {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-slate-900 bg-opacity-50"></div>
-
-        <div className="relative z-10 text-center text-white py-20 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center h-full space-y-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center">
-            Welcome to Creative Plus Studio.
-          </h1>
-          <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl font-bold text-center">
-            Where Innovation Meets Excellence!
-          </h3>
-
-          <AnimatePresence mode="wait">
-            <motion.h2
-              key={services[currentService].name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-orange-400"
-            >
-              {services[currentService].name}
-            </motion.h2>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={services[currentService].description}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-300"
-            >
-              {services[currentService].description}
-            </motion.p>
-          </AnimatePresence>
-        </div>
-      </section> */}
+      </section>
 
       <motion.section id="services" className="py-16 px-4 sm:px-6 lg:px-8" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
         <Services />
       </motion.section>
 
       <motion.section id="representation" className="py-16 px-4 sm:px-6 lg:px-8" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
-        <RepresentationSection/>
+        <RepresentationSection />
       </motion.section>
 
       <motion.section id="stats" className="py-16 px-4 sm:px-6 lg:px-8" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
-        <StatsSection/>
+        <StatsSection />
       </motion.section>
-
-      {/* <motion.section id="portfolio" className="py-16 px-4 sm:px-6 lg:px-8" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
-        <Portfolio />
-      </motion.section> */}
 
       <motion.section id="about" className="py-16 px-4 sm:px-6 lg:px-8" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
         <About />
@@ -159,7 +105,6 @@ export function Home() {
       <motion.section id="contact" className="py-16 px-4 sm:px-6 lg:px-8" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
         <Contact />
       </motion.section>
-
     </div>
   );
 }
