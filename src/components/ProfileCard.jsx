@@ -3,30 +3,31 @@ import PropTypes from "prop-types";
 
 const ProfileCard = React.memo(({ member }) => {
   return (
-    <div className="relative group w-full max-w-sm mx-auto bg-gradient-to-r from-orange-100 to-orange-200 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300">
-      {/* Profile Image */}
-      <div className="w-full h-60 overflow-hidden bg-orange-200 animate-pulse">
-        <img
-          src={member.image}
-          alt={`${member.name} - ${member.role}`}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+    <div className="relative w-full max-w-xs mx-auto bg-orange-50 border-2 border-orange-300 rounded-xl shadow-md p-6 text-center">
+      {/* Profile Image - Circular with Black Border */}
+      <div className="flex justify-center">
+        <div className="relative w-32 h-32 rounded-full border-4 border-black overflow-hidden">
+          <img
+            src={member.image}
+            alt={`${member.name} - ${member.role}`}
+            className="w-full h-full object-cover bg-gradient-to-r from-orange-300 to-orange-200"
+            loading="lazy"
+          />
+        </div>
       </div>
 
-      {/* Name and Role */}
-      <div className="p-4 text-center ">
-        <h4 className="text-xl text-slate-800 font-bold mb-1">{member.name}</h4>
-        <p className="text-slate-600 text-lg font-medium">{member.role}</p>
+      {/* Name */}
+      <h4 className="text-xl font-extrabold text-orange-600 mt-4">{member.name}</h4>
+
+      {/* Role with Black Badge */}
+      <div className="flex justify-center mt-2">
+        <span className="bg-black text-white text-xs font-semibold px-4 py-1 rounded-full">
+          {member.role}
+        </span>
       </div>
 
-      {/* Description on Hover */}
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-orange-100 to-orange-200 bg-opacity-90 flex items-center justify-center text-slate-800 text-sm px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        aria-hidden="true"
-      >
-        {member.bio}
-      </div>
+      {/* Experience */}
+      <p className="text-slate-700 text-sm mt-3">{member.bio}</p>
     </div>
   );
 });
