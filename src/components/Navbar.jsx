@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ServiceDropdown } from "./ServiceDropdown";
 import Logo from "../assets/Logo.png";
@@ -10,6 +10,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
   // Detect touch devices
@@ -24,17 +25,25 @@ export function Navbar() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isDropdownOpen && !event.target.closest(".dropdown-container")) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        !event.target.closest(".menu-toggle")
+      ) {
         setIsDropdownOpen(false);
+        setIsOpen(false);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isDropdownOpen]);
+  }, []);
 
-  const handleLinkClick = () => setIsOpen(false);
-  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
+  // Close dropdown on clicking any <ul> inside ServiceDropdown
+  const handleDropdownItemClick = () => {
+    setIsDropdownOpen(false);
+    setIsOpen(false);
+  };
 
   return (
     <nav className="bg-gradient-to-r from-orange-100 to-orange-200 text-slate-900 py-4 shadow-lg sticky top-0 z-50 backdrop-blur-sm">
@@ -42,7 +51,7 @@ export function Navbar() {
         {/* Logo and Brand Name */}
         <a
           href="/#home"
-          onClick={handleLinkClick}
+          onClick={() => setIsOpen(false)}
           className="flex items-center space-x-2"
         >
           <img
@@ -64,7 +73,7 @@ export function Navbar() {
           <button
             aria-label="Toggle Menu"
             onClick={() => setIsOpen(!isOpen)}
-            className="hover:scale-105 transition-transform"
+            className="menu-toggle hover:scale-105 transition-transform"
           >
             {isOpen ? (
               <X className="w-8 h-8 text-black" />
@@ -85,7 +94,7 @@ export function Navbar() {
           <li>
             <a
               href="/#home"
-              onClick={handleLinkClick}
+              onClick={() => setIsOpen(false)}
               className="hover:text-orange-500 transition-colors duration-300"
             >
               Home
@@ -95,6 +104,7 @@ export function Navbar() {
           {/* Services Dropdown */}
           <li
             className="relative dropdown-container"
+            ref={dropdownRef}
             onMouseEnter={() => !isTouchDevice && setIsDropdownOpen(true)}
             onMouseLeave={() => !isTouchDevice && setIsDropdownOpen(false)}
           >
@@ -103,18 +113,20 @@ export function Navbar() {
               aria-label="Services Menu"
               aria-haspopup="true"
               aria-expanded={isDropdownOpen}
-              onClick={isTouchDevice ? toggleDropdown : undefined}
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
               className="hover:text-orange-500 transition-colors duration-300"
             >
               Services
             </button>
-            {isDropdownOpen && <ServiceDropdown className="w-screen h-screen"/>}
+            {isDropdownOpen && (
+              <ServiceDropdown onItemClick={handleDropdownItemClick} />
+            )}
           </li>
 
           <li>
             <a
               href="/about"
-              onClick={handleLinkClick}
+              onClick={() => setIsOpen(false)}
               className="hover:text-orange-500 transition-colors duration-300"
             >
               About
@@ -123,25 +135,20 @@ export function Navbar() {
           <li>
             <a
               href="/contact"
-              onClick={handleLinkClick}
+              onClick={() => setIsOpen(false)}
               className="hover:text-orange-500 transition-colors duration-300"
             >
               Contact Us
             </a>
           </li>
           <li className="md:hidden">
-            <Button text="Book a Consultant" 
-            onClick={() => navigate("/contact")}
-              />
+            <Button text="Book a Consultant" onClick={() => navigate("/contact")} />
           </li>
         </ul>
 
         {/* Desktop Book a Consultant Button */}
         <div className="hidden md:block">
-          <Button
-            text="Book a Consultant"
-            onClick={() => navigate("/contact")}
-          />
+          <Button text="Book a Consultant" onClick={() => navigate("/contact")} />
         </div>
       </div>
     </nav>
