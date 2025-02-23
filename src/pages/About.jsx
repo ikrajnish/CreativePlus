@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import VishalImage from "../assets/a.jpg";
 import NitishImage from "../assets/b.jpg";
 import AmanImage from "../assets/c.jpg";
-import KananImage from "../assets/d.jpg";
 
 const ProfileCard = React.lazy(() => import("../components/ProfileCard"));
 
@@ -42,6 +41,7 @@ export function About() {
             <p className="mb-6">
               At <span className="font-semibold text-orange-500">Creative Plus Studio</span>, we specialize in providing top-notch Graphic Designing, Video Editing, Animation, Digital Marketing, and Web Development services. Our dedicated team of professionals is committed to delivering innovative and result-driven solutions that elevate your business to new heights.
             </p>
+            <p className="mb-6" >Founded in [2023], Creative Plus Studio has revolutionized the world of digital creativity. What started as a passion for design and storytelling has now grown into a full-service creative agency, offering a diverse range of services across categories like Graphic Designing, Video Editing, 2D & 3D Animation, Digital Marketing, and Web Development.</p>
           </div>
         </div>
       </div>

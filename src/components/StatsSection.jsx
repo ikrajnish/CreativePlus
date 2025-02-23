@@ -46,23 +46,23 @@ const CountUp = ({ end }) => {
 export function StatsSection() {
   return (
     <section
-      className="w-full px-6 md:px-16 lg:px-20 py-12 md:py-20 lg:py-24 overflow-hidden"
+      className="w-full max-w-[85rem] mx-auto px-6 md:px-16 lg:px-24 py-16 md:py-24 lg:py-28 overflow-hidden"
       id="stats-section"
       aria-labelledby="stats-section"
     >
       <h2 className="sr-only">Key statistics about our achievements</h2>
-      <div className="container mx-auto flex flex-col md:flex-row justify-center items-center text-center space-y-8 md:space-y-0 md:space-x-12">
+      <div className="w-full flex flex-col md:flex-row justify-center items-center text-center space-y-12 md:space-y-0 md:space-x-16">
         
-        {[
+        {[ 
           { end: 300, label: "Clients We Served" },
           { end: 800, label: "Projects Completed" },
           { end: 5, label: "Years of Experience" }
         ].map((stat, index) => (
-          <div key={index} className="transform transition-transform duration-300 hover:scale-105">
+          <div key={index} className="w-full md:w-1/3 transform transition-transform duration-300 hover:scale-105">
             <h3 className="text-4xl md:text-5xl font-bold text-orange-600">
               <CountUp end={stat.end} />+
             </h3>
-            <p className="text-gray-700 text-lg mt-2">{stat.label}</p>
+            <p className="text-gray-700 text-lg mt-4">{stat.label}</p>
           </div>
         ))}
 

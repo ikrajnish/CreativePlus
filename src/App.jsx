@@ -15,6 +15,7 @@ import { ModelingPage } from './pages/ModelingPage';
 import { WebDevPage } from './pages/WebDevPage';
 import { DigitalMarketingPage } from './pages/DigitalMarketingPage';
 import Description from './pages/Description';
+import { Career } from './pages/Career';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/career" element={<Career />} />
             
             {/* Add the service-specific routes */}
             <Route path="/graphic-design" element={<GraphicDesignPage />} />

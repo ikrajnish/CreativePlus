@@ -16,7 +16,7 @@ export function RepresentationSection() {
           >
             WHY CHOOSE US?
           </h1>
-          <p className="text-gray-700 text-lg sm:text-xl leading-relaxed mb-4" itemProp="description">
+          <p className="text-slate-700 text-md sm:text-xl leading-relaxed mb-4" itemProp="description">
             At Creative Plus Studio, we craft experiences through graphic design, video editing, animation, digital marketing, and web development.
           </p>
           <p className="text-gray-500 text-md sm:text-lg" itemProp="text">
@@ -42,7 +42,7 @@ export function RepresentationSection() {
               itemType="https://schema.org/ListItem"
             >
               <span 
-                className="text-orange-500 text-3xl mr-4" 
+                className="text-orange-500 text-2xl mr-4" 
                 aria-hidden="true"
               >
                 {item.icon}

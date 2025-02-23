@@ -14,7 +14,7 @@ export const Footer = React.memo(() => {
           <span className="text-slate-500" aria-hidden="true">|</span>
           <a href="/sitemap" className="hover:underline hover:text-orange-900 transition-colors duration-300">Sitemap</a>
         </nav>
-
+        
         {/* Copyright */}
         <p className="text-slate-800 text-sm text-center md:text-left">
           &copy; {new Date().getFullYear()} CreativePlusStudio. All rights reserved.
