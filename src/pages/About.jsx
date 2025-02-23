@@ -1,30 +1,37 @@
 import React, { Suspense } from "react";
-import VishalImage from "../assets/a.jpg";
-import NitishImage from "../assets/b.jpg";
-import AmanImage from "../assets/c.jpg";
+import VishalImage from "../assets/Vishalg.png";
+import NiteshImage from "../assets/NiteshKumar.png";
+import AmanImage from "../assets/AmanSingh.png";
+import AryanImage from "../assets/Aryan.png";
 
 const ProfileCard = React.lazy(() => import("../components/ProfileCard"));
 
 export function About() {
   const teamMembers = [
     {
-      name: "Vishal Kumar Yadav",
-      role: "Founder",
+      name: "Nitesh Kr. Sharma",
+      role: "Founder & CEO",
+      image: NiteshImage,
+      bio: "Experience: 3+ Years in Digital Creativity",
+    },
+    {
+      name: "Aryan Yadav",
+      role: "Co-Founder & MD",
+      image: AryanImage,
+      bio: "Experience: 2+ Years in Digital Marketing",
+    },
+    {
+      name: "Vishal Kr. Yadav",
+      role: "Co-Founder & CFO",
       image: VishalImage,
-      bio: "Passionate about creating cutting-edge web solutions and leading the vision of CreativePlusStudio."
+      bio: "Experience: 3+ Years in Business Development",
     },
     {
-      name: "Nitish Kumar",
-      role: "Graphic Designer",
-      image: NitishImage,
-      bio: "Expert in crafting stunning visuals that captivate and communicate effectively."
-    },
-    {
-      name: "Aman Verma",
-      role: "Video Editor & Animator",
+      name: "Aman Singh",
+      role: "COO & Project Manager",
       image: AmanImage,
-      bio: "Bringing stories to life with professional video editing and dynamic animations."
-    }
+      bio: "Experience: 2+ Years in Video Production",
+    },
   ];
 
   return (
@@ -41,24 +48,26 @@ export function About() {
             <p className="mb-6">
               At <span className="font-semibold text-orange-500">Creative Plus Studio</span>, we specialize in providing top-notch Graphic Designing, Video Editing, Animation, Digital Marketing, and Web Development services. Our dedicated team of professionals is committed to delivering innovative and result-driven solutions that elevate your business to new heights.
             </p>
-            <p className="mb-6" >Founded in [2023], Creative Plus Studio has revolutionized the world of digital creativity. What started as a passion for design and storytelling has now grown into a full-service creative agency, offering a diverse range of services across categories like Graphic Designing, Video Editing, 2D & 3D Animation, Digital Marketing, and Web Development.</p>
+            <p className="mb-6">
+              Founded in <span className="font-semibold text-orange-500">2023</span>, Creative Plus Studio has revolutionized the world of digital creativity. What started as a passion for design and storytelling has now grown into a full-service creative agency, offering a diverse range of services across categories like Graphic Designing, Video Editing, 2D & 3D Animation, Digital Marketing, and Web Development.
+            </p>
           </div>
         </div>
       </div>
 
       {/* Team Section */}
       <div className="py-16">
-  <h3 className="text-4xl font-extrabold text-orange-500 text-center mb-10">
-    Meet Our Team
-  </h3>
-  <Suspense fallback={<div className="text-center text-orange-500">Loading Team...</div>}>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-auto-fit gap-8 px-6 sm:px-10">
-      {teamMembers.map((member, index) => (
-        <ProfileCard key={index} member={member} className="transition-transform duration-300 hover:scale-105" />
-      ))}
-    </div>
-  </Suspense>
-</div>
+        <h3 className="text-4xl font-extrabold text-orange-500 text-center mb-10">
+          Meet Our Team
+        </h3>
+        <Suspense fallback={<div className="text-center text-orange-500">Loading Team...</div>}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 sm:px-10">
+            {teamMembers.map((member, index) => (
+              <ProfileCard key={index} member={member} className="transition-transform duration-300 hover:scale-105" />
+            ))}
+          </div>
+        </Suspense>
+      </div>
     </section>
   );
 }
