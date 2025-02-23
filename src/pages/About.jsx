@@ -1,10 +1,9 @@
-import React, { Suspense } from "react";
-import VishalImage from "../assets/Vishalg.png";
-import NiteshImage from "../assets/NiteshKumar.png";
-import AmanImage from "../assets/AmanSingh.png";
-import AryanImage from "../assets/Aryan.png";
-
-const ProfileCard = React.lazy(() => import("../components/ProfileCard"));
+import React from "react";
+import VishalImage from "/Vishalg.png";  // Use absolute path from /public
+import NiteshImage from "/NiteshKumar.png";
+import AmanImage from "/AmanSingh.png";
+import AryanImage from "/Aryan.png";
+import ProfileCard from "../components/ProfileCard";  // Direct import (no lazy loading)
 
 export function About() {
   const teamMembers = [
@@ -40,16 +39,24 @@ export function About() {
       <div className="py-12 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="text-center md:text-left">
-            <h2 id="about-section" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-500 leading-tight mb-4">
+            <h2
+              id="about-section"
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-500 leading-tight mb-4"
+            >
               ABOUT US
             </h2>
           </div>
           <div className="text-slate-700 text-base sm:text-lg leading-relaxed">
             <p className="mb-6">
-              At <span className="font-semibold text-orange-500">Creative Plus Studio</span>, we specialize in providing top-notch Graphic Designing, Video Editing, Animation, Digital Marketing, and Web Development services. Our dedicated team of professionals is committed to delivering innovative and result-driven solutions that elevate your business to new heights.
+              At <span className="font-semibold text-orange-500">Creative Plus Studio</span>, we specialize in
+              providing top-notch Graphic Designing, Video Editing, Animation, Digital Marketing, and Web Development
+              services. Our dedicated team of professionals is committed to delivering innovative and result-driven
+              solutions that elevate your business to new heights.
             </p>
             <p className="mb-6">
-              Founded in <span className="font-semibold text-orange-500">2023</span>, Creative Plus Studio has revolutionized the world of digital creativity. What started as a passion for design and storytelling has now grown into a full-service creative agency, offering a diverse range of services across categories like Graphic Designing, Video Editing, 2D & 3D Animation, Digital Marketing, and Web Development.
+              Founded in <span className="font-semibold text-orange-500">2023</span>, Creative Plus Studio has
+              revolutionized the world of digital creativity. What started as a passion for design and storytelling has
+              now grown into a full-service creative agency.
             </p>
           </div>
         </div>
@@ -57,16 +64,12 @@ export function About() {
 
       {/* Team Section */}
       <div className="py-16">
-        <h3 className="text-4xl font-extrabold text-orange-500 text-center mb-10">
-          Meet Our Team
-        </h3>
-        <Suspense fallback={<div className="text-center text-orange-500">Loading Team...</div>}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 sm:px-10">
-            {teamMembers.map((member, index) => (
-              <ProfileCard key={index} member={member} className="transition-transform duration-300 hover:scale-105" />
-            ))}
-          </div>
-        </Suspense>
+        <h3 className="text-4xl font-extrabold text-orange-500 text-center mb-10">Meet Our Team</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 sm:px-10">
+          {teamMembers.map((member, index) => (
+            <ProfileCard key={index} member={member} className="transition-transform duration-300 hover:scale-105" />
+          ))}
+        </div>
       </div>
     </section>
   );
