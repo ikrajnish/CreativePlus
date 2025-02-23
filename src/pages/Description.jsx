@@ -13,7 +13,7 @@ export default function Description() {
         {/* Company Overview */}
         <div className="md:col-span-2">
           <div className="flex items-center mb-4">
-            <div className="w-12 h-12 border-2 border-orange-500 rounded-full flex items-center justify-center">
+            <div className="w-32 h-32  flex items-center justify-center">
               <img src={Name} alt="Name"/>
             </div>
           </div>
@@ -48,9 +48,9 @@ export default function Description() {
               { title: "3D Modeling", link: "/3d-modeling" },
               { title: "Digital Marketing", link: "/digital-marketing" },
               { title: "Website Development", link: "/web-development" },
-              { title: "Printing", link: ""},
-              { title: "CGI Ads", link: ""},
-              { title: "App Development", link: ""},
+              // { title: "Printing", link: "/graphic-design"},
+              // { title: "CGI Ads", link: "/video-editing"},
+              // { title: "App Development", link: "/web-development"},
             ].map((service) => (
               <li key={service.link}>
                 <a href={service.link} className="hover:text-orange-500 transition">

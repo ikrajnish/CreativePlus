@@ -36,7 +36,7 @@ export function Career() {
             <p className="text-gray-700 mt-2">Seeking an expert in Adobe Premiere Pro and After Effects for high-quality video production.</p>
             <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Apply Now</button>
           </div>
-          <div className="p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div className=" p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h4 className="text-2xl font-semibold text-orange-500">Web Developer</h4>
             <p className="text-gray-700 mt-2">Hiring a skilled developer with experience in React, Tailwind CSS, and modern web technologies.</p>
             <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Apply Now</button>
