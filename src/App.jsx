@@ -12,7 +12,7 @@ import { GraphicDesignPage } from './pages/GraphicDesignPage';
 import { VideoEditingPage } from './pages/VideoEditingPage';
 import { AnimationPage } from './pages/AnimationPage';
 import { ModelingPage } from './pages/ModelingPage';
-import { WebDesignPage } from './pages/WebDesignPage';
+import { WebDevPage } from './pages/WebDevPage';
 import { DigitalMarketingPage } from './pages/DigitalMarketingPage';
 import Description from './pages/Description';
 
@@ -33,7 +33,7 @@ export default function App() {
             <Route path="/video-editing" element={<VideoEditingPage />} />
             <Route path="/animation" element={<AnimationPage />} />
             <Route path="/3d-modeling" element={<ModelingPage />} />
-            <Route path="/web-development" element={<WebDesignPage />} />
+            <Route path="/web-development" element={<WebDevPage />} />
             <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
           </Routes>
         </main>
