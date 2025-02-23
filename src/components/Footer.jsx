@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export const Footer = React.memo(() => {
   return (
@@ -44,6 +44,13 @@ export const Footer = React.memo(() => {
                rel="noopener noreferrer nofollow" 
                className="text-orange-700 text-xl hover:text-orange-900 transition-transform transform hover:scale-110">
               <FaInstagram />
+            </a>
+            <a href="https://youtube.com/@creativeplusstudio?si=-DGqcJLPf3Ria22X" 
+               aria-label="Subscribe to our YouTube channel" 
+               target="_blank" 
+               rel="noopener noreferrer nofollow" 
+               className="text-orange-700 text-xl hover:text-orange-900 transition-transform transform hover:scale-110">
+              <FaYoutube />
             </a>
           </div>
         </div>
