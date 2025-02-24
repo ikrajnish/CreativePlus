@@ -4,16 +4,20 @@ import graphicDesignVideo from "../assets/graphic-design.gif";
 import sampleImage1 from "../assets/logofirst.png";
 import sampleImage2 from "../assets/logosecond.png";
 import sampleImage3 from "../assets/logothird.png";
+import LogoDesignGif from "../assets/Logodesign.gif";
+import PrintingGif from "../assets/Printing.gif";
+import WebUiGif from "../assets/Webui.gif";
+import BrandGif from "../assets/Brand.gif"
 
 export function GraphicDesignPage() {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services = [
-    { title: "Logo Design", desc: "Crafting memorable logos that represent your brand's identity.", img: graphicDesignVideo, samples: [sampleImage1, sampleImage2,sampleImage3] },
-    { title: "Brand Identity Design", desc: "Creating cohesive visual identities across all channels.", img: graphicDesignVideo, samples: [sampleImage1, sampleImage2,sampleImage3] },
-    { title: "Print Design", desc: "Designing brochures, business cards, flyers, and more.", img: graphicDesignVideo, samples: [sampleImage1, sampleImage2,sampleImage3] },
-    { title: "Web & UI Design", desc: "Building modern, user-friendly interfaces for websites and apps.", img: graphicDesignVideo, samples: [sampleImage1, sampleImage2,sampleImage3] },
+    { title: "Logo Design", desc: "Crafting memorable logos that represent your brand's identity.", img: LogoDesignGif, samples: [sampleImage1, sampleImage2,sampleImage3] },
+    { title: "Brand Identity Design", desc: "Creating cohesive visual identities across all channels.", img: BrandGif, samples: [sampleImage1, sampleImage2,sampleImage3] },
+    { title: "Print Design", desc: "Designing brochures, business cards, flyers, and more.", img: PrintingGif, samples: [sampleImage1, sampleImage2,sampleImage3] },
+    { title: "Web & UI Design", desc: "Building modern, user-friendly interfaces for websites and apps.", img: WebUiGif, samples: [sampleImage1, sampleImage2,sampleImage3] },
     { title: "Packaging Design", desc: "Designing creative packaging that enhances your product’s appeal.", img: graphicDesignVideo, samples: [sampleImage1, sampleImage2,sampleImage3] },
     { title: "Social Media Graphics", desc: "Engaging visuals for your social media campaigns.", img: graphicDesignVideo, samples: [sampleImage1, sampleImage2,sampleImage3] }
   ];
