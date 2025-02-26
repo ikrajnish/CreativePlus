@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { Button } from "../components/Button";
 import graphicDesignVideo from "../assets/graphic-design.gif";
-import sampleImage1 from "../assets/logofirst.png";
-import sampleImage2 from "../assets/logosecond.png";
-import sampleImage3 from "../assets/logothird.png";
+import LogoDesign1 from "../assets/logofirst.png";
+import LogoDesign2 from "../assets/logosecond.png";
+import LogoDesign3 from "../assets/logothird.png";
+import LogoDesign4 from "../assets/logoFourth.png";
+import LogoDesign5 from "../assets/logoFifth.png";
+import LogoDesign6 from "../assets/logoSixth.png";
+import LogoDesign7 from "../assets/logoSeventh.png";
+import LogoDesign8 from "../assets/logoEight.png";
+import LogoDesign9 from "../assets/logoNine.png";
+import LogoDesign10 from "../assets/logoTen.png";
 import LogoDesignGif from "../assets/Logodesign.gif";
+import BrandDesign1 from "../assets/BrandidentityDesign01.png"
 import PrintingGif from "../assets/Printing.gif";
 import WebUiGif from "../assets/Webui.gif";
 import BrandGif from "../assets/Brand.gif"
@@ -14,12 +22,12 @@ export function GraphicDesignPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services = [
-    { title: "Logo Design", desc: "Crafting memorable logos that represent your brand's identity.", img: LogoDesignGif, samples: [sampleImage1, sampleImage2,sampleImage3] },
-    { title: "Brand Identity Design", desc: "Creating cohesive visual identities across all channels.", img: BrandGif, samples: [sampleImage1, sampleImage2,sampleImage3] },
-    { title: "Print Design", desc: "Designing brochures, business cards, flyers, and more.", img: PrintingGif, samples: [sampleImage1, sampleImage2,sampleImage3] },
-    { title: "Web & UI Design", desc: "Building modern, user-friendly interfaces for websites and apps.", img: WebUiGif, samples: [sampleImage1, sampleImage2,sampleImage3] },
-    { title: "Packaging Design", desc: "Designing creative packaging that enhances your product’s appeal.", img: graphicDesignVideo, samples: [sampleImage1, sampleImage2,sampleImage3] },
-    { title: "Social Media Graphics", desc: "Engaging visuals for your social media campaigns.", img: graphicDesignVideo, samples: [sampleImage1, sampleImage2,sampleImage3] }
+    { title: "Logo Design", desc: "Crafting memorable logos that represent your brand's identity.", img: LogoDesignGif, samples: [LogoDesign1, LogoDesign2,LogoDesign3,LogoDesign4,LogoDesign5,LogoDesign6,LogoDesign7,LogoDesign8,LogoDesign9,LogoDesign10] },
+    { title: "Brand Identity Design", desc: "Creating cohesive visual identities across all channels.", img: BrandGif, samples: [BrandDesign1] },
+    { title: "Print Design", desc: "Designing brochures, business cards, flyers, and more.", img: PrintingGif, samples: [LogoDesign5,LogoDesign6,LogoDesign7] },
+    { title: "Web & UI Design", desc: "Building modern, user-friendly interfaces for websites and apps.", img: WebUiGif, samples: [LogoDesign5,LogoDesign6,LogoDesign7] },
+    { title: "Packaging Design", desc: "Designing creative packaging that enhances your product’s appeal.", img: graphicDesignVideo, samples: [LogoDesign5,LogoDesign6,LogoDesign7] },
+    { title: "Social Media Graphics", desc: "Engaging visuals for your social media campaigns.", img: graphicDesignVideo, samples: [LogoDesign5,LogoDesign6,LogoDesign7] }
   ];
 
   const openModal = (service) => {
