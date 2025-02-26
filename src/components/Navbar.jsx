@@ -85,11 +85,11 @@ export function Navbar() {
 
         {/* Navigation Links */}
         <ul
-          className={`absolute md:relative top-16 right-0 md:top-auto md:right-auto bg-slate-100 md:bg-transparent md:shadow-none p-6 md:p-0 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-6 md:border-none  transition-all duration-500 ease-in-out transform ${
+          className={`fixed md:relative top-16 inset-x-0 md:top-auto md:inset-x-auto bg-gradient-to-r from-orange-100 to-orange-200 md:bg-transparent md:shadow-none p-6 md:p-0 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-6 transition-all duration-500 ease-in-out transform ${
             isOpen
               ? "translate-y-0 opacity-100 visible"
-              : "-translate-y-20 opacity-0 invisible md:translate-y-0 md:opacity-100 md:visible"
-          }`}
+              : "-translate-y-full opacity-0 invisible md:translate-y-0 md:opacity-100 md:visible"
+          } ml-auto`} // Added ml-auto here
         >
           <li>
             <a

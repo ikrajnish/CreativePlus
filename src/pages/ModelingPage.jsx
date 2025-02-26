@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../components/Button";
 import modelingVideo from "../assets/modeling.mp4";
-import video from "../assets/video-editing.gif"
+import ProductModeling1 from "../assets/logofirst.png";
+// import ProductModeling2 from "../assets/productModeling2.png";
+// import CharacterModeling1 from "../assets/characterModeling1.png";
+// import CharacterModeling2 from "../assets/characterModeling2.png";
+// import EnvironmentModeling1 from "../assets/environmentModeling1.png";
+// import EnvironmentModeling2 from "../assets/environmentModeling2.png";
+// import ArchitectureGif from "../assets/architecture.gif";
+// import LightingGif from "../assets/lighting.gif";
 
 export function ModelingPage() {
+  const [selectedService, setSelectedService] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const services = [
+    { title: "Product Modeling", desc: "Accurate and detailed models for visualization, prototyping, and marketing.", img: modelingVideo, samples: [ProductModeling1, ProductModeling1] },
+    { title: "Character Modeling", desc: "Designing 3D characters for games, animations, and digital media.", img: modelingVideo, samples: [ProductModeling1, ProductModeling1] },
+    { title: "Environment Modeling", desc: "Developing 3D environments and scenes for VR, games, or films.", img: modelingVideo, samples: [ProductModeling1, ProductModeling1] },
+    { title: "Architectural Visualization", desc: "Creating 3D models of buildings, interiors, and landscapes.", img: modelingVideo, samples: [ProductModeling1] },
+    { title: "Texturing & Lighting", desc: "Applying realistic textures and lighting for lifelike representations.", img: modelingVideo, samples: [ProductModeling1] }
+  ];
+
+  const openModal = (service) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedService(null);
+  };
+
   return (
     <div className="p-6">
       {/* Hero Section */}
@@ -14,31 +42,18 @@ export function ModelingPage() {
         </p>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-16 bg-orange-50 transition-all duration-700 ease-in-out transform hover:scale-105 reveal">
-      <div className="container mx-auto px-6 lg:px-20 text-center">
-          <h2 className="text-4xl font-bold text-slate-700 mb-6">What We Do</h2>
-          <p className="text-lg text-slate-700 max-w-4xl mx-auto leading-relaxed">
-          At Creative Plus Studio, we provide high-quality 3D modeling services that cater to industries such as architecture, gaming, animation, and product design. Our expert designers use the latest tools and technologies to create models that are visually stunning and functional.
-          </p>
-        </div>
-      </section>
-
       {/* Services Grid */}
       <section className="py-16 slide-in-left">
         <div className="container mx-auto px-6 lg:px-20 text-center">
           <h2 className="text-4xl font-bold text-slate-700 mb-6">Our 3D Modeling Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-lg text-slate-700">
-            {[
-              { title: "Product Modeling", desc: "Accurate and detailed models for visualization, prototyping, and marketing.",img: video },
-              { title: "Character Modeling", desc: "Designing 3D characters for games, animations, and digital media.",img: video },
-              { title: "Environment Modeling", desc: "Developing 3D environments and scenes for VR, games, or films.",img: video },
-              { title: "Architectural Visualization", desc: "Creating 3D models of buildings, interiors, and landscapes.",img: video },
-              { title: "Texturing & Lighting", desc: "Applying realistic textures and lighting for lifelike representations.",img: video }
-            ]
-            .map((service, index) => (
-              <div key={index} className="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-                <img src={service.img} alt={service.title} className="w-full h-40 object-cover rounded-md mb-4" />
+            {services.map((service, index) => (
+              <div 
+                key={index} 
+                className="p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                onClick={() => openModal(service)}
+              >
+                <img src={service.img} alt={service.title} className="w-full h-auto object-cover rounded-md mb-4" />
                 <strong>{service.title}</strong>
                 <p>{service.desc}</p>
               </div>
@@ -47,34 +62,26 @@ export function ModelingPage() {
         </div>
       </section>
 
-      {/* Image Section */}
-      <section className="py-16 transition-all duration-700 ease-in-out transform hover:scale-105 fade-in">
-        <div className="container mx-auto px-6 lg:px-20 text-center">
-          <div className="flex justify-center mb-6">
-            <img
-            src={video}
-            alt="Modeling"
-            className="w-full max-w-3xl h-80 object-cover rounded-lg shadow-xl"
-            />
+      {/* Fullscreen Modal */}
+      {isModalOpen && selectedService && (
+        <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
+          <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto">
+            <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
+            <div className="grid grid-cols-1 gap-4">
+              {selectedService.samples.map((sample, index) => (
+                <img key={index} src={sample} alt={`Sample ${index + 1}`} className="w-full h-auto object-cover rounded-md" />
+              ))}
+            </div>
+            <div className="flex justify-center mt-6">
+              <Button
+                text="Close"
+                className="px-6 py-3 transition-all duration-300"
+                onClick={closeModal}
+              />
+            </div>
           </div>
-          <p className="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
-            Let us help you bring your ideas to life with stunning 3D models for your business or creative projects.
-          </p>
         </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="py-16 text-center fade-in">
-        <h2 className="text-4xl font-bold text-slate-700 mb-6">Ready to Bring Your Ideas to Life in 3D?</h2>
-        <p className="text-lg text-slate-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-          Our team is here to create realistic and accurate 3D models tailored to your business or project. Let’s work together to bring your ideas into the digital world.
-        </p>
-        <Button 
-          text="Contact Us Now" 
-          onClick={() => window.location.href = "/contact"} // Redirect to contact page
-          className="bg-orange-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300"
-        />      
-      </section>
+      )}
     </div>
   );
 }

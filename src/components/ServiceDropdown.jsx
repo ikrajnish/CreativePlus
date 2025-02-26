@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function ServiceDropdown({ onMouseEnter, onMouseLeave, onItemClick }) {
   return (
     <div
-      className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-screen md:w-xl lg:w-4xl bg-white shadow-lg border border-gray-200 p-4 grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm overflow-auto"
+      className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-screen max-w-4xl bg-white shadow-lg border border-gray-200 p-4 grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm overflow-y-auto max-h-[80vh]"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
