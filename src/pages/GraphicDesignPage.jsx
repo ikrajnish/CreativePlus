@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { Button } from "../components/Button";
 import graphicDesignVideo from "../assets/graphic-design.gif";
+import LogoDesignGif from "../assets/Logodesign.gif";
+import BrandGif from "../assets/Brand.gif";
+import PrintingGif from "../assets/Printing.gif";
+import WebUiGif from "../assets/Webui.gif";
+
+// Sample Image Imports
 import LogoDesign1 from "../assets/logofirst.png";
 import LogoDesign2 from "../assets/logosecond.png";
 import LogoDesign3 from "../assets/logothird.png";
@@ -11,34 +17,62 @@ import LogoDesign7 from "../assets/logoSeventh.png";
 import LogoDesign8 from "../assets/logoEight.png";
 import LogoDesign9 from "../assets/logoNine.png";
 import LogoDesign10 from "../assets/logoTen.png";
-import LogoDesignGif from "../assets/Logodesign.gif";
-import BrandDesign1 from "../assets/BrandidentityDesign01.png"
-import PrintingGif from "../assets/Printing.gif";
-import WebUiGif from "../assets/Webui.gif";
-import BrandGif from "../assets/Brand.gif"
+import BrandDesign1 from "../assets/BrandidentityDesign01.png";
 
 export function GraphicDesignPage() {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const services = [
-    { title: "Logo Design", desc: "Crafting memorable logos that represent your brand's identity.", img: LogoDesignGif, samples: [LogoDesign1, LogoDesign2,LogoDesign3,LogoDesign4,LogoDesign5,LogoDesign6,LogoDesign7,LogoDesign8,LogoDesign9,LogoDesign10] },
-    { title: "Brand Identity Design", desc: "Creating cohesive visual identities across all channels.", img: BrandGif, samples: [BrandDesign1] },
-    { title: "Print Design", desc: "Designing brochures, business cards, flyers, and more.", img: PrintingGif, samples: [LogoDesign5,LogoDesign6,LogoDesign7] },
-    { title: "Web & UI Design", desc: "Building modern, user-friendly interfaces for websites and apps.", img: WebUiGif, samples: [LogoDesign5,LogoDesign6,LogoDesign7] },
-    { title: "Packaging Design", desc: "Designing creative packaging that enhances your product’s appeal.", img: graphicDesignVideo, samples: [LogoDesign5,LogoDesign6,LogoDesign7] },
-    { title: "Social Media Graphics", desc: "Engaging visuals for your social media campaigns.", img: graphicDesignVideo, samples: [LogoDesign5,LogoDesign6,LogoDesign7] }
-  ];
+  // Memoized services array
+  const services = useMemo(() => [
+    { 
+      title: "Logo Design", 
+      desc: "Crafting memorable logos that represent your brand's identity.", 
+      img: LogoDesignGif, 
+      samples: [LogoDesign1, LogoDesign2, LogoDesign3, LogoDesign4, LogoDesign5, LogoDesign6, LogoDesign7, LogoDesign8, LogoDesign9, LogoDesign10] 
+    },
+    { 
+      title: "Brand Identity Design", 
+      desc: "Creating cohesive visual identities across all channels.", 
+      img: BrandGif, 
+      samples: [BrandDesign1] 
+    },
+    { 
+      title: "Print Design", 
+      desc: "Designing brochures, business cards, flyers, and more.", 
+      img: PrintingGif, 
+      samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
+    },
+    { 
+      title: "Web & UI Design", 
+      desc: "Building modern, user-friendly interfaces for websites and apps.", 
+      img: WebUiGif, 
+      samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
+    },
+    { 
+      title: "Packaging Design", 
+      desc: "Designing creative packaging that enhances your product’s appeal.", 
+      img: graphicDesignVideo, 
+      samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
+    },
+    { 
+      title: "Social Media Graphics", 
+      desc: "Engaging visuals for your social media campaigns.", 
+      img: graphicDesignVideo, 
+      samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
+    }
+  ], []);
 
-  const openModal = (service) => {
+  // Memoized functions to avoid unnecessary re-renders
+  const openModal = useCallback((service) => {
     setSelectedService(service);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedService(null);
-  };
+  }, []);
 
   return (
     <div className="p-6">
@@ -61,7 +95,12 @@ export function GraphicDesignPage() {
                 className="p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
                 onClick={() => openModal(service)}
               >
-                <img src={service.img} alt={service.title} className="w-full h-auto object-cover rounded-md mb-4" />
+                <img 
+                  src={service.img} 
+                  alt={service.title} 
+                  loading="lazy" 
+                  className="w-full h-auto object-cover rounded-md mb-4" 
+                />
                 <strong>{service.title}</strong>
                 <p>{service.desc}</p>
               </div>
@@ -70,28 +109,32 @@ export function GraphicDesignPage() {
         </div>
       </section>
 
-{/* Fullscreen Modal */}
-{isModalOpen && selectedService && (
-  <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
-    <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto">
-      <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
-      <div className="grid grid-cols-1 gap-4">
-        {selectedService.samples.map((sample, index) => (
-          <img key={index} src={sample} alt={`Sample ${index + 1}`} className="w-full h-auto object-cover rounded-md" />
-        ))}
-      </div>
-      <div className="flex justify-center mt-6">
-        <Button
-          text="Close"
-          className="px-6 py-3 transition-all duration-300"
-          onClick={closeModal}
-        />
-      </div>
-    </div>
-  </div>
-)}
-
+      {/* Fullscreen Modal */}
+      {isModalOpen && selectedService && (
+        <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
+          <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto">
+            <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
+            <div className="grid grid-cols-1 gap-4">
+              {selectedService.samples.map((sample, index) => (
+                <img 
+                  key={index} 
+                  src={sample} 
+                  alt={`Sample ${index + 1}`} 
+                  loading="lazy" 
+                  className="w-full h-auto object-cover rounded-md" 
+                />
+              ))}
+            </div>
+            <div className="flex justify-center mt-6">
+              <Button
+                text="Close"
+                className="px-6 py-3 transition-all duration-300"
+                onClick={closeModal}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-

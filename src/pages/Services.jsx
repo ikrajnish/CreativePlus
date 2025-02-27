@@ -1,8 +1,8 @@
-import React from "react";
-import MediaServiceCard from "../components/MediaServiceCard"; 
+import React, { useMemo, useCallback } from "react";
+import MediaServiceCard from "../components/MediaServiceCard";
 import { useNavigate } from "react-router-dom";
 
-// Import MP4 videos
+// Import media files
 import graphicDesignVideo from '../assets/graphic-design.gif';
 import videoEditingVideo from '../assets/video-editing.gif';
 import animationVideo from '../assets/animation.gif';
@@ -13,14 +13,20 @@ import digitalMarketingVideo from '../assets/digital-marketing.gif';
 export function Services() {
   const navigate = useNavigate();
 
-  const services = [
+  // Memoized services array to prevent unnecessary re-creations
+  const services = useMemo(() => [
     { title: 'Graphic Designing', description: 'Eye-catching designs for your brand.', media: graphicDesignVideo, link: "/graphic-design" },
     { title: 'Video Editing', description: 'Professional editing to tell your story.', media: videoEditingVideo, link: "/video-editing" },
     { title: '2D & 3D Animation', description: 'Bring your ideas to life with animations.', media: animationVideo, link: "/animation" },
     { title: '3D Modeling', description: 'Detailed models for various industries.', media: modelingVideo, link: "/3d-modeling" },
     { title: 'Web Designing', description: 'Responsive and modern websites.', media: webDesignVideo, link: "/web-development" },
     { title: 'Digital Marketing', description: 'Grow your business with strategic marketing.', media: digitalMarketingVideo, link: "/digital-marketing" }
-  ];
+  ], []);
+
+  // Optimized navigation handler
+  const handleNavigate = useCallback((link) => {
+    navigate(link);
+  }, [navigate]);
 
   return (
     <section className="container mx-auto px-8 py-16">
@@ -41,7 +47,7 @@ export function Services() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
-          <div key={index} onClick={() => navigate(service.link)} className="cursor-pointer">
+          <div key={index} onClick={() => handleNavigate(service.link)} className="cursor-pointer">
             <MediaServiceCard service={service} />
           </div>
         ))}

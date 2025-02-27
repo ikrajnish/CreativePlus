@@ -1,26 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Button } from "../components/Button";
-import modelingVideo from "../assets/modeling.mp4";
+import PlaceholderImage from "../assets/logofirst.png"; // Replace with a relevant static image
 import ProductModeling1 from "../assets/logofirst.png";
-// import ProductModeling2 from "../assets/productModeling2.png";
-// import CharacterModeling1 from "../assets/characterModeling1.png";
-// import CharacterModeling2 from "../assets/characterModeling2.png";
-// import EnvironmentModeling1 from "../assets/environmentModeling1.png";
-// import EnvironmentModeling2 from "../assets/environmentModeling2.png";
-// import ArchitectureGif from "../assets/architecture.gif";
-// import LightingGif from "../assets/lighting.gif";
 
 export function ModelingPage() {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const services = [
-    { title: "Product Modeling", desc: "Accurate and detailed models for visualization, prototyping, and marketing.", img: modelingVideo, samples: [ProductModeling1, ProductModeling1] },
-    { title: "Character Modeling", desc: "Designing 3D characters for games, animations, and digital media.", img: modelingVideo, samples: [ProductModeling1, ProductModeling1] },
-    { title: "Environment Modeling", desc: "Developing 3D environments and scenes for VR, games, or films.", img: modelingVideo, samples: [ProductModeling1, ProductModeling1] },
-    { title: "Architectural Visualization", desc: "Creating 3D models of buildings, interiors, and landscapes.", img: modelingVideo, samples: [ProductModeling1] },
-    { title: "Texturing & Lighting", desc: "Applying realistic textures and lighting for lifelike representations.", img: modelingVideo, samples: [ProductModeling1] }
-  ];
+  const services = useMemo(() => [
+    { title: "Product Modeling", desc: "Accurate and detailed models for visualization, prototyping, and marketing.", img: PlaceholderImage, samples: [ProductModeling1] },
+    { title: "Character Modeling", desc: "Designing 3D characters for games, animations, and digital media.", img: PlaceholderImage, samples: [ProductModeling1] },
+    { title: "Environment Modeling", desc: "Developing 3D environments and scenes for VR, games, or films.", img: PlaceholderImage, samples: [ProductModeling1] },
+    { title: "Architectural Visualization", desc: "Creating 3D models of buildings, interiors, and landscapes.", img: PlaceholderImage, samples: [ProductModeling1] },
+    { title: "Texturing & Lighting", desc: "Applying realistic textures and lighting for lifelike representations.", img: PlaceholderImage, samples: [ProductModeling1] }
+  ], []);
 
   const openModal = (service) => {
     setSelectedService(service);
@@ -53,7 +46,7 @@ export function ModelingPage() {
                 className="p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
                 onClick={() => openModal(service)}
               >
-                <img src={service.img} alt={service.title} className="w-full h-auto object-cover rounded-md mb-4" />
+                <img src={service.img} alt={service.title} loading="lazy" className="w-full h-auto object-cover rounded-md mb-4" />
                 <strong>{service.title}</strong>
                 <p>{service.desc}</p>
               </div>
@@ -69,7 +62,7 @@ export function ModelingPage() {
             <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
             <div className="grid grid-cols-1 gap-4">
               {selectedService.samples.map((sample, index) => (
-                <img key={index} src={sample} alt={`Sample ${index + 1}`} className="w-full h-auto object-cover rounded-md" />
+                <img key={index} src={sample} alt={`Sample ${index + 1}`} loading="lazy" className="w-full h-auto object-cover rounded-md" />
               ))}
             </div>
             <div className="flex justify-center mt-6">
