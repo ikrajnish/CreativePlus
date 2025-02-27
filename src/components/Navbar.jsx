@@ -125,8 +125,8 @@ export function Navbar() {
 
           <li>
             <a
-              href="/about"
-              onClick={() => navigate("/contact")}
+              href="#"
+              onClick={() => navigate("/about")}
               className="hover:text-orange-500 transition-colors duration-300"
             >
               About
@@ -134,7 +134,7 @@ export function Navbar() {
           </li>
           <li>
             <a
-              href="/contact"
+              href="#"
               onClick={() => navigate("/contact")}
               className="hover:text-orange-500 transition-colors duration-300"
             >
