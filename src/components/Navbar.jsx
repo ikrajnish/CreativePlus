@@ -126,7 +126,7 @@ export function Navbar() {
           <li>
             <a
               href="/about"
-              onClick={() => setIsOpen(false)}
+              onClick={() => navigate("/contact")}
               className="hover:text-orange-500 transition-colors duration-300"
             >
               About
@@ -135,7 +135,7 @@ export function Navbar() {
           <li>
             <a
               href="/contact"
-              onClick={() => setIsOpen(false)}
+              onClick={() => navigate("/contact")}
               className="hover:text-orange-500 transition-colors duration-300"
             >
               Contact Us

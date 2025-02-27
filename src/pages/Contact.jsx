@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "../components/Button";
 import Sms from "../assets/mail.gif";
 
 const Modal = ({ isOpen, onClose, title, content }) => {
@@ -66,7 +65,7 @@ export function Contact() {
         <img src={Sms} alt="Contact" className="w-full h-full max-h-[550px] object-cover rounded-lg mt-6 shadow-md" />
       </div>
 
-      <div className="p-8 rounded-2xl shadow-lg flex flex-col justify-center">
+      <div className="p-8 rounded-2xl bg-white shadow-lg flex flex-col justify-center">
         <h3 className="text-3xl font-bold text-orange-500 mb-6">Send Request To Us</h3>
 
         <form action="https://formspree.io/f/xvgzvjrq" method="POST" onSubmit={handleSubmit}>
