@@ -1,9 +1,9 @@
 import React from "react";
-import VishalImage from "../assets/Vishalg.png";
-import NiteshImage from "../assets/NiteshKumar.png"
-import AmanImage from "../assets/Amansingh.png";
+import ProfileCard from "../components/ProfileCard";
+import NiteshImage from "../assets/NiteshKumar.png";
 import AryanImage from "../assets/Aryan.png";
-import ProfileCard from "../components/ProfileCard";  // Direct import (no lazy loading)
+import VishalImage from "../assets/Vishalg.png";
+import AmanImage from "../assets/Amansingh.png";
 
 export function About() {
   const teamMembers = [
@@ -67,7 +67,7 @@ export function About() {
         <h3 className="text-4xl font-extrabold text-orange-500 text-center mb-10">Meet Our Team</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 sm:px-10">
           {teamMembers.map((member, index) => (
-            <ProfileCard key={index} member={member} className="transition-transform duration-300 hover:scale-105" />
+            <ProfileCard key={index} member={member} />
           ))}
         </div>
       </div>

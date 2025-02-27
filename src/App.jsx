@@ -20,9 +20,9 @@ import { Career } from './pages/Career';
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-gradient-to-br from-orange-100 to-white rounded-xl shadow-lg">
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-orange-100 to-white">
         <Navbar />
-        <main className="flex-grow ">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -37,9 +37,12 @@ export default function App() {
             <Route path="/3d-modeling" element={<ModelingPage />} />
             <Route path="/web-development" element={<WebDevPage />} />
             <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
+
+            {/* Add a catch-all route for 404 errors */}
+            <Route path="*" element={<div className="text-center py-20">404 - Page Not Found</div>} />
           </Routes>
         </main>
-        <Description/>
+        <Description />
         <Footer />
       </div>
     </Router>

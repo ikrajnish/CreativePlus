@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const ProfileCard = React.memo(({ member }) => {
   return (
-    <div className="relative w-full max-w-xs mx-auto bg-orange-50 border-2 border-orange-300 rounded-xl shadow-md p-6 text-center">
+    <div className="relative w-full max-w-xs mx-auto bg-orange-50 border-2 border-orange-300 rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300">
       {/* Profile Image - Circular with Black Border */}
       <div className="flex justify-center">
         <div className="relative w-32 h-32 rounded-full border-4 border-black overflow-hidden">
@@ -17,7 +17,9 @@ const ProfileCard = React.memo(({ member }) => {
       </div>
 
       {/* Name */}
-      <h4 className="text-xl font-extrabold text-orange-600 mt-4">{member.name}</h4>
+      <h4 className="text-xl font-extrabold text-orange-600 mt-4">
+        {member.name}
+      </h4>
 
       {/* Role with Black Badge */}
       <div className="flex justify-center mt-2">

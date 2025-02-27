@@ -1,5 +1,5 @@
-import React, { useState } from "react"; 
-import { Button } from "../components/Button"; 
+import React, { useState } from "react";
+import { Button } from "../components/Button";
 import Sms from "../assets/mail.gif";
 
 const Modal = ({ isOpen, onClose, title, content }) => {
@@ -25,6 +25,31 @@ export function Contact() {
     setModalOpen(true);
   };
 
+  // Handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get form fields
+    const form = event.target;
+    const firstName = form.firstName.value.trim();
+    const lastName = form.lastName.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const interest = form.interest.value.trim();
+    const message = form.message.value.trim();
+    const budget = form.budget.value.trim();
+    const policy = form.policy.checked;
+
+    // Validate required fields
+    if (!firstName || !lastName || !email || !phone || !interest || !message || !budget || !policy) {
+      alert("Please fill out all required fields before submitting.");
+      return;
+    }
+
+    // If all fields are valid, submit the form
+    form.submit();
+  };
+
   return (
     <section className="container mx-auto p-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
       <div className="flex flex-col justify-between">
@@ -35,7 +60,7 @@ export function Contact() {
           <p className="text-slate-700 text-lg mb-4">
             Questions, collabs, inquiries? Use the contact form, and we will get in touch, or mail us at 
             <a href="mailto:info@creativeplusstudio.com" className="text-orange-500 font-medium"> info@creativeplusstudio.com</a>. 
-            Need help? Go to our <a href="#" className="text-orange-500 font-medium">Contact Us</a> page.
+            Need help? Go to our <a href="/contact" className="text-orange-500 font-medium">Contact Us</a> page.
           </p>
         </div>
         <img src={Sms} alt="Contact" className="w-full h-full max-h-[550px] object-cover rounded-lg mt-6 shadow-md" />
@@ -44,7 +69,7 @@ export function Contact() {
       <div className="p-8 rounded-2xl shadow-lg flex flex-col justify-center">
         <h3 className="text-3xl font-bold text-orange-500 mb-6">Send Request To Us</h3>
 
-        <form action="https://formspree.io/f/xvgzvjrq" method="POST">
+        <form action="https://formspree.io/f/xvgzvjrq" method="POST" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <input type="text" name="firstName" placeholder="First Name" className="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required />
             <input type="text" name="lastName" placeholder="Last Name" className="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" required />
@@ -56,9 +81,9 @@ export function Contact() {
           </div>
 
           <input type="url" name="companyUrl" placeholder="https:// Company URL" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" />
-          <input type="text" name="interest" placeholder="Interested In" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" />
+          <input type="text" name="interest" placeholder="Interested In" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required />
           <textarea name="message" placeholder="Your Message" rows="4" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required></textarea>
-          <input type="text" name="budget" placeholder="Budget" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" />
+          <input type="text" name="budget" placeholder="Budget" className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required />
 
           <div className="flex items-center mb-4">
             <input type="checkbox" name="policy" className="mr-2" required />
