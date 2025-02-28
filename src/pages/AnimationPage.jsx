@@ -1,10 +1,11 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Button } from "../components/Button";
 
-const Animation1 = lazy(() => import("../assets/animation.gif"));
-const Animation2 = lazy(() => import("../assets/animation.gif"));
-const Animation3 = lazy(() => import("../assets/animation.gif"));
-const Animation4 = lazy(() => import("../assets/animation.gif"));
+import Animation1 from "../assets/animation.gif";
+import Animation2 from "../assets/animation.gif";
+import Animation3 from "../assets/animation.gif";
+import Animation4 from "../assets/animation.gif";
+
 
 const services = [
   {

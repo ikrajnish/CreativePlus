@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import { NavLink } from "react-router-dom"; // Use NavLink for better navigation
 import { FaPhone } from "react-icons/fa";
 import Name from "../assets/name.png";
 
@@ -44,7 +45,7 @@ const Description = () => {
           <h4 className="text-lg font-semibold text-slate-800 mb-4">COMPANY</h4>
           <ul className="text-slate-600 space-y-2">
             <li>
-              <a href="/about" className="hover:text-orange-500 transition">About Us</a>
+              <NavLink to="/about" className="hover:text-orange-500 transition">About Us</NavLink>
             </li>
           </ul>
         </div>
@@ -54,7 +55,7 @@ const Description = () => {
           <ul className="text-slate-600 space-y-2">
             {services.map(({ title, link }) => (
               <li key={link}>
-                <a href={link} className="hover:text-orange-500 transition">{title}</a>
+                <NavLink to={link} className="hover:text-orange-500 transition">{title}</NavLink>
               </li>
             ))}
           </ul>
@@ -65,7 +66,7 @@ const Description = () => {
           <ul className="text-slate-600 space-y-2">
             {careers.map(({ title, link }) => (
               <li key={title}>
-                <a href={link} className="hover:text-orange-500 transition">{title}</a>
+                <NavLink to={link} className="hover:text-orange-500 transition">{title}</NavLink>
               </li>
             ))}
           </ul>
