@@ -6,7 +6,7 @@ import { About } from './pages/About';
 import { Services } from './pages/Services';
 import { Contact } from './pages/Contact';
 import { Footer } from './components/Footer';
-import ScrollToTop from './ScrollToTop'; // Import ScrollToTop
+import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop
 
 // Import the individual service pages
 import { GraphicDesignPage } from './pages/GraphicDesignPage';
