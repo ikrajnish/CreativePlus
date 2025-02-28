@@ -6,6 +6,7 @@ import { About } from './pages/About';
 import { Services } from './pages/Services';
 import { Contact } from './pages/Contact';
 import { Footer } from './components/Footer';
+import ScrollToTop from './ScrollToTop'; // Import ScrollToTop
 
 // Import the individual service pages
 import { GraphicDesignPage } from './pages/GraphicDesignPage';
@@ -20,6 +21,7 @@ import { Career } from './pages/Career';
 export default function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* Ensures page scrolls to top on navigation */}
       <div className="min-h-screen flex flex-col bg-gradient-to-br from-orange-100 to-white">
         <Navbar />
         <main className="flex-grow">
