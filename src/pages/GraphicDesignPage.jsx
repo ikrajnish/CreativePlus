@@ -18,6 +18,18 @@ import LogoDesign8 from "../assets/logoEight.png";
 import LogoDesign9 from "../assets/logoNine.png";
 import LogoDesign10 from "../assets/logoTen.png";
 import BrandDesign1 from "../assets/BrandidentityDesign01.png";
+import BrandDesign2 from "../assets/BrandDesign_02.png";
+import BrandDesign3 from "../assets/BrandIdentity_03.png";
+import Packging1 from "../assets/Packging_01.png";
+import Packging2 from "../assets/Packging_02.png";
+import Packging3 from "../assets/Packging_03.png";
+import Packging4 from "../assets/Packging_04.png";
+import Packging5 from "../assets/Packging_05.png";
+import Packging6 from "../assets/Packging_06.jpg";
+import SocialMedia1 from "../assets/SocialMediaPost_01.png";
+import SocialMedia2 from "../assets/SocialMediaPost_02.png";
+import SocialMedia3 from "../assets/SocialMediaPost_03.png";
+
 
 export function GraphicDesignPage() {
   const [selectedService, setSelectedService] = useState(null);
@@ -35,7 +47,7 @@ export function GraphicDesignPage() {
       title: "Brand Identity Design", 
       desc: "Creating cohesive visual identities across all channels.", 
       img: BrandGif, 
-      samples: [BrandDesign1] 
+      samples: [BrandDesign1,BrandDesign2,BrandDesign3] 
     },
     { 
       title: "Print Design", 
@@ -53,13 +65,13 @@ export function GraphicDesignPage() {
       title: "Packaging Design", 
       desc: "Designing creative packaging that enhances your product’s appeal.", 
       img: graphicDesignVideo, 
-      samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
+      samples: [Packging1, Packging2, Packging3, Packging4, Packging5, Packging6] 
     },
     { 
       title: "Social Media Graphics", 
       desc: "Engaging visuals for your social media campaigns.", 
       img: graphicDesignVideo, 
-      samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
+      samples: [SocialMedia1, SocialMedia2, SocialMedia3] 
     }
   ], []);
 
