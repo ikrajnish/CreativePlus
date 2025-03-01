@@ -15,7 +15,6 @@ const services = [
 
 const careers = [
   { title: "Life at CreativePlusStudio", link: "/career" },
-  { title: "Join Us", link: "/career" },
 ];
 
 const Description = () => {
@@ -45,7 +44,12 @@ const Description = () => {
           <h4 className="text-lg font-semibold text-slate-800 mb-4">COMPANY</h4>
           <ul className="text-slate-600 space-y-2">
             <li>
-              <NavLink to="/about" className="hover:text-orange-500 transition">About Us</NavLink>
+              <a 
+                href="/#about"
+                className="hover:text-orange-500 transition"
+              >
+                About Us
+              </a>
             </li>
           </ul>
         </div>
@@ -77,10 +81,10 @@ const Description = () => {
           <h4 className="text-lg font-semibold text-slate-800 mb-4">CONTACT US</h4>
           <div className="mb-4">
             <p className="text-orange-500 font-semibold">INDIA</p>
-            <p className="text-slate-600">New Gaira City, Kolkata, West Bengal, 700152</p>
+            <p className="text-slate-600">New Delhi, Noida, Uttar Pradesh, 201304</p>
             <div className="flex items-center text-slate-600 mt-2">
               <FaPhone className="mr-2 text-orange-500" />
-              <a href="tel:+917250186824" className="hover:text-orange-500 transition">+91 - 7250186824</a>
+              <a href="tel:+917250186824" className="hover:text-orange-500 transition">+91 - 9220219521</a>
             </div>
           </div>
         </div>

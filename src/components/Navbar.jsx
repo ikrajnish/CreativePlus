@@ -116,7 +116,9 @@ export function Navbar() {
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               className="hover:text-orange-500 transition-colors duration-300"
             >
+            <a href="/#services">
               Services
+            </a>
             </button>
             {isDropdownOpen && (
               <ServiceDropdown onItemClick={handleDropdownItemClick} />
@@ -125,8 +127,7 @@ export function Navbar() {
 
           <li>
             <a
-              href="#"
-              onClick={() => navigate("/about")}
+              href="/#about"
               className="hover:text-orange-500 transition-colors duration-300"
             >
               About
@@ -134,8 +135,7 @@ export function Navbar() {
           </li>
           <li>
             <a
-              href="#"
-              onClick={() => navigate("/contact")}
+              href="/#contact"
               className="hover:text-orange-500 transition-colors duration-300"
             >
               Contact Us
