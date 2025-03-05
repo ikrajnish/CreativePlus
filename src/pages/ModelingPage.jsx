@@ -54,17 +54,63 @@ export function ModelingPage() {
           </div>
         </div>
       </section>
+      <section className="py-16 fade-in">
+                    <div className="container mx-auto px-6 lg:px-20 text-center">
+                      <div className="flex justify-center mb-6">
+                        <img
+                          src={ProductModeling1}
+                          alt="Digital Marketing"
+                          className="w-full max-w-3xl h-80 object-cover rounded-lg shadow-xl"
+                          loading="lazy"
+                        />
+                      </div>
+                      <p className="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
+                        Dominate your industry with high-converting digital strategies that bring measurable results.
+                      </p>
+                    </div>
+                  </section>
+            
+                  {/* Call to Action Section */}
+                  <section className="py-16 text-center fade-in">
+                    <h2 className="text-4xl font-bold text-slate-700 mb-6">
+                      Let's Elevate Your Brand Together
+                    </h2>
+                    <p className="text-lg text-slate-700 max-w-3xl mx-auto mb-8 leading-relaxed">
+                      Our team of digital marketing pros is ready to skyrocket your brand’s online presence. Let’s create a strategy that gets real results!
+                    </p>
+                    <Button
+                      text="Get Started Now"
+                      onClick={() => (window.location.href = "/contact")}
+                      className="bg-orange-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300"
+                    />
+      </section>
 
       {/* Fullscreen Modal */}
-      {isModalOpen && selectedService && (
-        <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
-          <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto">
+          {isModalOpen && selectedService && (
+              <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
+                <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto relative">
+      
+            {/* Fixed Close Button (X) */}
+            <button 
+              className="fixed top-6 right-11 text-gray-700 hover:text-red-500 text-3xl font-bold z-50"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+
             <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
             <div className="grid grid-cols-1 gap-4">
               {selectedService.samples.map((sample, index) => (
-                <img key={index} src={sample} alt={`Sample ${index + 1}`} loading="lazy" className="w-full h-auto object-cover rounded-md" />
-              ))}
-            </div>
+                <img 
+                 key={index} 
+                 src={sample} 
+                 alt={`Sample ${index + 1}`} 
+                 loading="lazy" 
+                 className="w-full h-auto object-cover rounded-md" 
+                />
+          ))}
+          </div>
+
             <div className="flex justify-center mt-6">
               <Button
                 text="Close"
@@ -74,7 +120,7 @@ export function ModelingPage() {
             </div>
           </div>
         </div>
-      )}
+    )}
     </div>
   );
 }

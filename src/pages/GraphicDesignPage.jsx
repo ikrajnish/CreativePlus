@@ -26,9 +26,23 @@ import Packging3 from "../assets/Packging_03.png";
 import Packging4 from "../assets/Packging_04.png";
 import Packging5 from "../assets/Packging_05.png";
 import Packging6 from "../assets/Packging_06.jpg";
+import Packging7 from "../assets/Packging_07.png";
+import Packging8 from "../assets/Packging_08.png";
 import SocialMedia1 from "../assets/SocialMediaPost_01.png";
 import SocialMedia2 from "../assets/SocialMediaPost_02.png";
 import SocialMedia3 from "../assets/SocialMediaPost_03.png";
+import SocialMedia4 from "../assets/socialmediaPost_04.jpg";
+import SocialMedia5 from "../assets/socialmediaPost_05.png";
+import SocialMedia6 from "../assets/socialmediaPost_06.png";
+import SocialMedia7 from "../assets/socialmediaPost_07.png";
+import SocialMedia8 from "../assets/socialmediaPost_08.png";
+import SocialMedia9 from "../assets/socialmediaPost_09.png";
+import webdev1 from "../assets/webdev1.png";
+import webdev2 from "../assets/webdev2.png";
+import webdev3 from "../assets/webdev3.png";
+import webdev4 from "../assets/webdev4.png";
+
+
 
 
 export function GraphicDesignPage() {
@@ -56,22 +70,22 @@ export function GraphicDesignPage() {
       samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
     },
     { 
-      title: "Web & UI Design", 
+      title: "Web Devlopment & UI Design", 
       desc: "Building modern, user-friendly interfaces for websites and apps.", 
       img: WebUiGif, 
-      samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
+      samples: [webdev1, webdev2, webdev3, webdev4] 
     },
     { 
       title: "Packaging Design", 
       desc: "Designing creative packaging that enhances your product’s appeal.", 
       img: graphicDesignVideo, 
-      samples: [Packging1, Packging2, Packging3, Packging4, Packging5, Packging6] 
+      samples: [Packging1, Packging2, Packging3, Packging4, Packging5, Packging6, Packging7, Packging8] 
     },
     { 
       title: "Social Media Graphics", 
       desc: "Engaging visuals for your social media campaigns.", 
       img: graphicDesignVideo, 
-      samples: [SocialMedia1, SocialMedia2, SocialMedia3] 
+      samples: [SocialMedia1, SocialMedia2, SocialMedia3, SocialMedia4, SocialMedia5,SocialMedia6, SocialMedia7, SocialMedia8, SocialMedia9] 
     }
   ], []);
 
@@ -120,23 +134,63 @@ export function GraphicDesignPage() {
           </div>
         </div>
       </section>
+      <section className="py-16 fade-in">
+              <div className="container mx-auto px-6 lg:px-20 text-center">
+                <div className="flex justify-center mb-6">
+                  <img
+                    src={graphicDesignVideo}
+                    alt="Digital Marketing"
+                    className="w-full max-w-3xl h-80 object-cover rounded-lg shadow-xl"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
+                  Dominate your industry with high-converting digital strategies that bring measurable results.
+                </p>
+              </div>
+            </section>
+      
+            {/* Call to Action Section */}
+            <section className="py-16 text-center fade-in">
+              <h2 className="text-4xl font-bold text-slate-700 mb-6">
+                Let's Elevate Your Brand Together
+              </h2>
+              <p className="text-lg text-slate-700 max-w-3xl mx-auto mb-8 leading-relaxed">
+                Our team of digital marketing pros is ready to skyrocket your brand’s online presence. Let’s create a strategy that gets real results!
+              </p>
+              <Button
+                text="Get Started Now"
+                onClick={() => (window.location.href = "/contact")}
+                className="bg-orange-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300"
+              />
+            </section>
 
       {/* Fullscreen Modal */}
-      {isModalOpen && selectedService && (
-        <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
-          <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto">
+          {isModalOpen && selectedService && (
+              <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
+                <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto relative">
+      
+            {/* Fixed Close Button (X) */}
+            <button 
+              className="fixed top-6 right-11 text-gray-700 hover:text-red-500 text-3xl font-bold z-50"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+
             <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
             <div className="grid grid-cols-1 gap-4">
               {selectedService.samples.map((sample, index) => (
                 <img 
-                  key={index} 
-                  src={sample} 
-                  alt={`Sample ${index + 1}`} 
-                  loading="lazy" 
-                  className="w-full h-auto object-cover rounded-md" 
+                 key={index} 
+                 src={sample} 
+                 alt={`Sample ${index + 1}`} 
+                 loading="lazy" 
+                 className="w-full h-auto object-cover rounded-md" 
                 />
-              ))}
-            </div>
+          ))}
+          </div>
+
             <div className="flex justify-center mt-6">
               <Button
                 text="Close"
@@ -146,7 +200,7 @@ export function GraphicDesignPage() {
             </div>
           </div>
         </div>
-      )}
+    )}
     </div>
   );
 }

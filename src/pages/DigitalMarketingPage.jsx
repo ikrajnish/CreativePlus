@@ -37,16 +37,6 @@ const DigitalMarketingPage = () => {
         </p>
       </section>
 
-      {/* Digital Marketing Overview Section */}
-      <section className="py-16 bg-orange-50 transition-all duration-700 ease-in-out reveal">
-        <div className="container mx-auto px-6 lg:px-20 text-center">
-          <h2 className="text-4xl font-bold text-slate-700 mb-6">What We Do</h2>
-          <p className="text-lg text-slate-700 max-w-4xl mx-auto leading-relaxed">
-            At CreativePlusStudio, we craft winning digital marketing strategies that drive traffic, amplify engagement, and boost conversions. Let’s turn your vision into digital dominance.
-          </p>
-        </div>
-      </section>
-
       {/* Services Grid */}
       <section className="py-16 slide-in-left">
         <div className="container mx-auto px-6 lg:px-20 text-center">
@@ -76,7 +66,39 @@ const DigitalMarketingPage = () => {
 
       {/* Modal */}
       {isModalOpen && selectedService && (
-        <Modal service={selectedService} onClose={closeModal} />
+        <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
+          <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto relative">
+            
+            {/* Fixed Close Button (X) */}
+            <button
+              className="absolute top-4 right-6 text-gray-700 hover:text-red-500 text-3xl font-bold z-50"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+
+            <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
+            <div className="grid grid-cols-1 gap-4">
+              {selectedService.samples?.map((sample, index) => (
+                <img 
+                  key={index} 
+                  src={sample} 
+                  alt={`Sample ${index + 1}`} 
+                  loading="lazy" 
+                  className="w-full h-auto object-cover rounded-md" 
+                />
+              ))}
+            </div>
+
+            <div className="flex justify-center mt-6">
+              <Button
+                text="Close"
+                className="px-6 py-3 transition-all duration-300"
+                onClick={closeModal}
+              />
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Image Showcase Section */}
@@ -113,32 +135,5 @@ const DigitalMarketingPage = () => {
     </div>
   );
 };
-
-// Memoized Modal Component for Performance Optimization
-const Modal = memo(({ service, onClose }) => (
-  <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
-    <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto">
-      <h2 className="text-4xl font-bold mb-6 text-center">{service.title} Showcase</h2>
-      <div className="grid grid-cols-1 gap-4">
-        {[...Array(3)].map((_, index) => (
-          <img
-            key={index}
-            src={digitalMarketingGif}
-            alt={`Sample ${index + 1}`}
-            className="w-full h-auto object-cover rounded-md"
-            loading="lazy"
-          />
-        ))}
-      </div>
-      <div className="flex justify-center mt-6">
-        <Button
-          text="Close"
-          className="px-6 py-3 transition-all duration-300"
-          onClick={onClose}
-        />
-      </div>
-    </div>
-  </div>
-));
 
 export { DigitalMarketingPage };
