@@ -24,7 +24,7 @@ import Packging1 from "../assets/Packging_01.png";
 import Packging2 from "../assets/Packging_02.png";
 import Packging3 from "../assets/Packging_03.png";
 import Packging4 from "../assets/Packging_04.png";
-import Packging5 from "../assets/packaging_05.png";
+import Packging5 from "../assets/Packging_05.png";
 import Packging6 from "../assets/Packging_06.jpg";
 import Packging7 from "../assets/Packging_07.png";
 import Packging8 from "../assets/Packging_08.png";
