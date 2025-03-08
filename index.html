@@ -4,19 +4,58 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
     <meta name="description" content="Creative Plus Studio offers top-notch graphic design, video editing, 2D/3D animation, web design, and digital marketing services." />
     <meta name="keywords" content="Creative Plus Studio, graphic design, video editing, 3D animation, web design, digital marketing" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Creative Plus Studio" />
+    <link rel="canonical" href="https://www.creativeplus.tech" />
+
+    <!-- Open Graph (OG) Meta Tags -->
     <meta property="og:title" content="Creative Plus Studio" />
     <meta property="og:description" content="Your one-stop solution for creative digital services." />
     <meta property="og:image" content="/logo.png" />
-    <meta property="og:url" content="https://www.creativeplusstudio.com" />
+    <meta property="og:url" content="https://www.creativeplus.tech" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Creative Plus Studio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Creative Plus Studio</title>
-    
+    <meta name="twitter:title" content="Creative Plus Studio - Digital Creativity Redefined" />
+    <meta name="twitter:description" content="We provide high-quality graphic design, video editing, animation, web development, and digital marketing services." />
+    <meta name="twitter:image" content="/logo.png" />
+    <meta name="twitter:site" content="@CreativePlusStudio" />
+    <meta name="twitter:creator" content="@CreativePlusStudio" />
+
     <!-- Google Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-    <!-- Tailwind CSS (assuming you use a CDN or it's already in your build process) -->
+    <!-- Structured Data (JSON-LD for SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Creative Plus Studio",
+      "url": "https://www.creativeplus.tech",
+      "logo": "https://www.creativeplus.tech/logo.png",
+      "description": "Creative Plus Studio offers top-notch graphic design, video editing, 2D/3D animation, web design, and digital marketing services.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91 7250186824",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.facebook.com/CreativePlusStudio",
+        "https://www.instagram.com/CreativePlusStudio",
+        "https://www.linkedin.com/company/CreativePlusStudio"
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com/4.0.0"></script>
   </head>
   <body class="bg-gray-50 font-poppins">
