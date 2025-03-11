@@ -44,7 +44,7 @@ export function VideoEditingPage() {
           "title": "Color Correction & Grading", 
           "desc": "Adjusting and enhancing colors to achieve a natural or cinematic look.", 
           "img": videoEditingGif, 
-          "samples": [motion1] 
+          "samples": [event1] 
       },
       { 
           "title": "Visual Effects (VFX) & Motion Tracking", 
