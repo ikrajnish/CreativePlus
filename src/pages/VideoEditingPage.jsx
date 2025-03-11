@@ -166,13 +166,12 @@ export function VideoEditingPage() {
             <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
             <div className="grid grid-cols-1 gap-4">
               {selectedService.samples.map((sample, index) => (
-                <img 
-                  key={index} 
-                  src={sample} 
-                  alt={`Sample ${index + 1}`} 
-                  loading="lazy" 
-                  className="w-full h-auto object-cover rounded-md" 
-                />
+                <video 
+                key={index} 
+                src={sample} 
+                controls 
+                className="w-full h-[80vh] object-cover rounded-md"
+              />
               ))}
             </div>
 
