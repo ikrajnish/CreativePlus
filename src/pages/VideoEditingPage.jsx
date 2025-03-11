@@ -1,23 +1,83 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { Button } from "../components/Button";
 import videoEditingGif from "../assets/video-editing.gif";
-import cinematic1 from "../assets/video-editing.gif";
-import cinematic2 from "../assets/video-editing.gif";
-import corporate1 from "../assets/video-editing.gif";
-import social1 from "../assets/video-editing.gif";
-import event1 from "../assets/video-editing.gif";
-import motion1 from "../assets/video-editing.gif";
+import cinematic1 from "../assets/video3.mp4";
+import cinematic2 from "../assets/video4.mp4";
+import corporate1 from "../assets/video4.mp4";
+import social1 from "../assets/video3.mp4";
+import event1 from "../assets/video1.mp4";
+import ads1 from "../assets/video2.mp4";
+import ads2 from "../assets/video5.mp4";
+
 
 export function VideoEditingPage() {
   const [selectedService, setSelectedService] = useState(null);
 
   // Memoized services array for better performance
   const services = useMemo(() => [
-    { title: "Cinematic Editing", desc: "Creating immersive cinematic experiences with professional cuts and transitions.", img: videoEditingGif, samples: [cinematic1, cinematic2] },
-    { title: "Corporate Videos", desc: "Producing polished corporate videos for presentations and marketing.", img: videoEditingGif, samples: [corporate1] },
-    { title: "YouTube & Social Media", desc: "Editing engaging content tailored for social media platforms and YouTube.", img: videoEditingGif, samples: [social1] },
-    { title: "Event Highlights", desc: "Compiling memorable moments into beautifully edited highlight reels.", img: videoEditingGif, samples: [event1] },
-    { title: "Motion Graphics & Effects", desc: "Enhancing videos with animations, text overlays, and special effects.", img: videoEditingGif, samples: [motion1] }
+    
+      { 
+          "title": "Captions & Subtitles", 
+          "desc": "Adding accurate and well-timed captions for better accessibility and engagement.", 
+          "img": videoEditingGif, 
+          "samples": [cinematic1, cinematic2] 
+      },
+      { 
+          "title": "Documentary & Storytelling", 
+          "desc": "Crafting compelling narratives with seamless editing to bring stories to life.", 
+          "img": videoEditingGif, 
+          "samples": [corporate1] 
+      },
+      { 
+          "title": "Events & Wedding Videos", 
+          "desc": "Capturing and editing memorable moments with a cinematic touch.", 
+          "img": videoEditingGif, 
+          "samples": [event1] 
+      },
+      { 
+          "title": "Motion Graphics & 3D Elements", 
+          "desc": "Enhancing videos with dynamic animations, 3D elements, and eye-catching visuals.", 
+          "img": videoEditingGif, 
+          "samples": [event1] 
+      },
+      { 
+          "title": "Color Correction & Grading", 
+          "desc": "Adjusting and enhancing colors to achieve a natural or cinematic look.", 
+          "img": videoEditingGif, 
+          "samples": [motion1] 
+      },
+      { 
+          "title": "Visual Effects (VFX) & Motion Tracking", 
+          "desc": "Adding advanced VFX, CGI, and motion tracking for immersive video experiences.", 
+          "img": videoEditingGif, 
+          "samples": [cinematic1, cinematic2] 
+      },
+      { 
+          "title": "Sound Design, Editing & SFX", 
+          "desc": "Creating high-quality audio experiences with professional sound design and effects.", 
+          "img": videoEditingGif, 
+          "samples": [corporate1] 
+      },
+      { 
+          "title": "Background Music & Noise Reduction", 
+          "desc": "Enhancing videos with mood-based music and removing unwanted noise.", 
+          "img": videoEditingGif, 
+          "samples": [social1] 
+      },
+      { 
+          "title": "Green Screen (Chroma Keying)", 
+          "desc": "Seamlessly replacing backgrounds for a professional and creative look.", 
+          "img": videoEditingGif, 
+          "samples": [event1] 
+      },
+      { 
+          "title": "Ads & Promotional Videos", 
+          "desc": "Producing high-quality ads optimized for engagement and brand promotion.", 
+          "img": videoEditingGif, 
+          "samples": [ads1,ads2] 
+      }
+  
+  
   ], []);
 
   // Optimized modal open/close handlers

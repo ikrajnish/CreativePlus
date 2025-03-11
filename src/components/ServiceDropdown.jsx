@@ -14,14 +14,15 @@ export function ServiceDropdown({ onMouseEnter, onMouseLeave, onItemClick }) {
           link: "/graphic-design",
           items: [
             "Logo Design",
-            "Branding",
-            "Brochure/Flyer",
-            "Catalog",
-            "Packaging",
-            "Business Card",
-            "UI/UX",
-            "Book Cover",
-            "Infographics",
+            "Brand Identity Design",
+            "Print Design",
+            "Web UI Design",
+            "Packaging Design",
+            "Social Media Graphics",
+            "Merchandise Design",
+            "E-book & Presentation Design",
+            "Digital Marketing Graphic",
+            "Typography & Custom arts",
           ],
         },
         {
@@ -43,35 +44,44 @@ export function ServiceDropdown({ onMouseEnter, onMouseLeave, onItemClick }) {
           title: "Video Editing",
           link: "/video-editing",
           items: [
-            "Captions",
-            "Documentary",
-            "Events",
-            "Storytelling",
-            "Motion Graphics",
-            "Wedding Videos",
-          ],
+            "Captions & Subtitles",
+            "Documentary & Storytelling",
+            "Events & Wedding Videos",
+            "Motion Graphics & 3D Elements",
+            "Color Correction & Grading",
+            "Visual Effects (VFX) & Motion Tracking",
+            "Sound Design, Editing & SFX",
+            "Background Music & Noise Reduction",
+            "Green Screen (Chroma Keying)",
+            "Ads & Promotional Videos"
+        ]
+        
         },
         {
           title: "3D Modeling",
           link: "/3d-modeling",
-          items: [
+          "items": [
             "Characters",
-            "Products",
-            "Interiors",
-            "Vehicles",
-            "Sculpting",
-          ],
+            "Architectural Visualization",
+            "Texturing & Lighting",
+            "Rigging & Animation",
+            "Simulation & VFX",
+            "Environment Modeling"
+        ],
         },
         {
           title: "Digital Marketing",
           link: "/digital-marketing",
-          items: [
-            "Google Ads",
-            "SEO",
-            "Social Media",
-            "Content Creation",
-            "Email Marketing",
-          ],
+          "items": [
+              "Google Ads",
+              "Email Marketing",
+              "Affiliate & Influencer Marketing",
+              "Conversion Rate Optimization (CRO)",
+              "Blogging & SEO Content",
+              "Video Marketing",
+              "Infographics & Ebooks"
+          ]
+
         },
         {
           title: "Website Development",

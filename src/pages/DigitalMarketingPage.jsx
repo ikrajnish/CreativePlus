@@ -3,12 +3,47 @@ import { Button } from "../components/Button";
 import digitalMarketingGif from "../assets/digital-marketing.gif";
 
 const services = [
-  { title: "Search Engine Optimization (SEO)", desc: "Rank higher on search engines and attract organic traffic." },
-  { title: "Social Media Marketing (SMM)", desc: "Create viral campaigns and grow a loyal audience." },
-  { title: "Pay-Per-Click Advertising (PPC)", desc: "Run laser-targeted ads for instant conversions." },
-  { title: "Email Marketing", desc: "Engage and nurture leads with personalized campaigns." },
-  { title: "Content Marketing", desc: "Tell compelling stories and turn readers into customers." },
-  { title: "Influencer Marketing", desc: "Leverage influencers to expand brand credibility." },
+    { 
+        "title": "Search Engine Optimization (SEO)", 
+        "desc": "Optimize your website to rank higher on search engines and drive organic traffic." 
+    },
+    { 
+        "title": "Social Media Marketing (SMM)", 
+        "desc": "Create viral campaigns, build brand awareness, and grow a loyal audience." 
+    },
+    { 
+        "title": "Pay-Per-Click Advertising (PPC)", 
+        "desc": "Run highly targeted ad campaigns for instant traffic and conversions." 
+    },
+    { 
+        "title": "Email Marketing", 
+        "desc": "Engage, nurture, and convert leads with personalized email campaigns." 
+    },
+    { 
+        "title": "Content Marketing", 
+        "desc": "Create compelling blogs, videos, and infographics to attract and engage customers." 
+    },
+    { 
+        "title": "Affiliate & Influencer Marketing", 
+        "desc": "Partner with affiliates and influencers to expand brand credibility and sales." 
+    },
+    { 
+        "title": "Conversion Rate Optimization (CRO)", 
+        "desc": "Improve website performance with A/B testing, CTA optimization, and better user experience." 
+    },
+    { 
+        "title": "Blogging & SEO Content", 
+        "desc": "Write high-quality, SEO-optimized blogs that increase traffic and engagement." 
+    },
+    { 
+        "title": "Video Marketing", 
+        "desc": "Boost brand awareness with YouTube videos, Reels, and Shorts for maximum reach." 
+    },
+    { 
+        "title": "Infographics & Ebooks", 
+        "desc": "Create visually engaging content that informs, educates, and attracts your audience." 
+    }
+
 ];
 
 const DigitalMarketingPage = () => {

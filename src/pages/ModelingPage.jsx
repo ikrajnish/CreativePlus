@@ -8,11 +8,68 @@ export function ModelingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services = useMemo(() => [
-    { title: "Product Modeling", desc: "Accurate and detailed models for visualization, prototyping, and marketing.", img: PlaceholderImage, samples: [ProductModeling1] },
-    { title: "Character Modeling", desc: "Designing 3D characters for games, animations, and digital media.", img: PlaceholderImage, samples: [ProductModeling1] },
-    { title: "Environment Modeling", desc: "Developing 3D environments and scenes for VR, games, or films.", img: PlaceholderImage, samples: [ProductModeling1] },
-    { title: "Architectural Visualization", desc: "Creating 3D models of buildings, interiors, and landscapes.", img: PlaceholderImage, samples: [ProductModeling1] },
-    { title: "Texturing & Lighting", desc: "Applying realistic textures and lighting for lifelike representations.", img: PlaceholderImage, samples: [ProductModeling1] }
+    
+      { 
+          "title": "Hard Surface Modeling", 
+          "desc": "Creating detailed 3D models of products, vehicles, and architectural designs.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Organic Modeling", 
+          "desc": "Sculpting realistic and stylized characters, animals, and clothing accessories.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Environment Modeling", 
+          "desc": "Designing immersive natural, urban, and fantasy environments for games and films.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Sculpting & High-Poly Modeling", 
+          "desc": "Creating highly detailed characters and objects using advanced sculpting techniques.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Texturing & Shading", 
+          "desc": "Applying realistic materials and textures for lifelike 3D models.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Rigging & Animation", 
+          "desc": "Setting up bones, joints, and mechanical structures for character and object animation.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Lighting & Rendering", 
+          "desc": "Enhancing 3D scenes with realistic lighting, reflections, and shadows.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Simulation & VFX", 
+          "desc": "Creating dynamic effects such as fire, water, smoke, and destruction simulations.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Architectural Visualization", 
+          "desc": "Developing stunning 3D models of buildings, interiors, and landscapes.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      },
+      { 
+          "title": "Popular 3D Software", 
+          "desc": "Proficient in Blender, Maya, ZBrush, Cinema 4D, and 3ds Max for high-quality modeling.", 
+          "img": PlaceholderImage, 
+          "samples": [ProductModeling1] 
+      }
+    
   ], []);
 
   const openModal = (service) => {

@@ -70,7 +70,7 @@ export function GraphicDesignPage() {
       samples: [LogoDesign5, LogoDesign6, LogoDesign7] 
     },
     { 
-      title: "Web Devlopment & UI Design", 
+      title: "Web UI Design", 
       desc: "Building modern, user-friendly interfaces for websites and apps.", 
       img: WebUiGif, 
       samples: [webdev1, webdev2, webdev3, webdev4] 
@@ -86,7 +86,31 @@ export function GraphicDesignPage() {
       desc: "Engaging visuals for your social media campaigns.", 
       img: graphicDesignVideo, 
       samples: [SocialMedia1, SocialMedia2, SocialMedia3, SocialMedia4, SocialMedia5,SocialMedia6, SocialMedia7, SocialMedia8, SocialMedia9] 
-    }
+    },
+    { 
+      title: "Merchandise Design", 
+      desc: "Engaging visuals for your social media campaigns.", 
+      img: graphicDesignVideo, 
+      samples: [SocialMedia1, SocialMedia2, SocialMedia3, SocialMedia4, SocialMedia5,SocialMedia6, SocialMedia7, SocialMedia8, SocialMedia9] 
+    },
+    { 
+      title: "E-book & Presentation Design", 
+      desc: "Engaging visuals for your social media campaigns.", 
+      img: graphicDesignVideo, 
+      samples: [SocialMedia1, SocialMedia2, SocialMedia3, SocialMedia4, SocialMedia5,SocialMedia6, SocialMedia7, SocialMedia8, SocialMedia9] 
+    },
+    { 
+      title: "Digital Marketing Graphic", 
+      desc: "Engaging visuals for your social media campaigns.", 
+      img: graphicDesignVideo, 
+      samples: [SocialMedia1, SocialMedia2, SocialMedia3, SocialMedia4, SocialMedia5,SocialMedia6, SocialMedia7, SocialMedia8, SocialMedia9] 
+    },
+    { 
+      title: "Typography & Custom arts", 
+      desc: "Engaging visuals for your social media campaigns.", 
+      img: graphicDesignVideo, 
+      samples: [SocialMedia1, SocialMedia2, SocialMedia3, SocialMedia4, SocialMedia5,SocialMedia6, SocialMedia7, SocialMedia8, SocialMedia9] 
+    },
   ], []);
 
   // Memoized functions to avoid unnecessary re-renders
