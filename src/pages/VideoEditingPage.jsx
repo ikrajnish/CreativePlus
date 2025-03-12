@@ -176,7 +176,7 @@ export function VideoEditingPage() {
                 key={index} 
                 src={sample} 
                 controls 
-                className="w-full h-[80vh] object-cover rounded-md"
+                className="w-full h-auto max-h-[80vh] object-contain rounded-md"
               />
               ))}
             </div>
