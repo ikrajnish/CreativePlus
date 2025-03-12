@@ -13,8 +13,9 @@ import revVideo from "../assets/RSAReviewVideoedit.mp4";
 import motion from "../assets/motion.mp4";
 import travels from "../assets/TravelsvideoEdit.mp4";
 import travellars from "../assets/Travellars.mp4";
-import motiongraphic from "../assets/motiongraphic.mp4";
+import motiongraphic from "../assets/Motiongraphic.mp4";
 import modeling from "../assets/modeling.mp4";
+import D2 from "../assets/advertise.mp4"
 export function VideoEditingPage() {
   const [selectedService, setSelectedService] = useState(null);
 
@@ -79,7 +80,7 @@ export function VideoEditingPage() {
           "title": "Ads & Promotional Videos", 
           "desc": "Producing high-quality ads optimized for engagement and brand promotion.", 
           "img": videoEditingGif, 
-          "samples": [ads1,ads2] 
+          "samples": [ads1,ads2,D2] 
       }
   
   
