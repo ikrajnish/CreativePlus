@@ -18,7 +18,9 @@ import modeling from "../assets/modeling.mp4";
 import D2 from "../assets/advertise.mp4";
 import documentary from "../assets/Documentary100.gif";
 import modelinggif from "../assets/Modeling.gif";
-import soc from "../assets/soc.gif"
+import soc from "../assets/soc.gif";
+import digi from "../assets/digi.gif";
+import seo from "../assets/seo.gif"
 export function VideoEditingPage() {
   const [selectedService, setSelectedService] = useState(null);
 
@@ -76,7 +78,7 @@ export function VideoEditingPage() {
       { 
           "title": "Green Screen (Chroma Keying)", 
           "desc": "Seamlessly replacing backgrounds for a professional and creative look.", 
-          "img": videoEditingGif, 
+          "img": seo, 
           "samples": [event1] 
       },
       { 
