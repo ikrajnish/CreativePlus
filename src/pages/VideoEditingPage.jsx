@@ -8,8 +8,13 @@ import social1 from "../assets/video3.mp4";
 import event1 from "../assets/video1.mp4";
 import ads1 from "../assets/video2.mp4";
 import ads2 from "../assets/video5.mp4";
-
-
+import podcast from "../assets/PodcastEdit.mp4";
+import revVideo from "../assets/RSAReviewVideoedit.mp4";
+import motion from "../assets/motion.mp4";
+import travels from "../assets/travelsvideoEdit.mp4";
+import travellars from "../assets/travellars.mp4";
+import motiongraphic from "../assets/motiongraphic.mp4";
+import modeling from "../assets/modeling.mp4";
 export function VideoEditingPage() {
   const [selectedService, setSelectedService] = useState(null);
 
@@ -26,31 +31,31 @@ export function VideoEditingPage() {
           "title": "Documentary & Storytelling", 
           "desc": "Crafting compelling narratives with seamless editing to bring stories to life.", 
           "img": videoEditingGif, 
-          "samples": [corporate1] 
+          "samples": [corporate1,podcast] 
       },
       { 
           "title": "Events & Wedding Videos", 
           "desc": "Capturing and editing memorable moments with a cinematic touch.", 
           "img": videoEditingGif, 
-          "samples": [event1] 
+          "samples": [event1,revVideo] 
       },
       { 
           "title": "Motion Graphics & 3D Elements", 
           "desc": "Enhancing videos with dynamic animations, 3D elements, and eye-catching visuals.", 
           "img": videoEditingGif, 
-          "samples": [event1] 
+          "samples": [motion,motiongraphic] 
       },
       { 
           "title": "Color Correction & Grading", 
           "desc": "Adjusting and enhancing colors to achieve a natural or cinematic look.", 
           "img": videoEditingGif, 
-          "samples": [event1] 
+          "samples": [event1,travels] 
       },
       { 
           "title": "Visual Effects (VFX) & Motion Tracking", 
           "desc": "Adding advanced VFX, CGI, and motion tracking for immersive video experiences.", 
           "img": videoEditingGif, 
-          "samples": [cinematic1, cinematic2] 
+          "samples": [modeling,cinematic1, cinematic2] 
       },
       { 
           "title": "Sound Design, Editing & SFX", 
@@ -62,7 +67,7 @@ export function VideoEditingPage() {
           "title": "Background Music & Noise Reduction", 
           "desc": "Enhancing videos with mood-based music and removing unwanted noise.", 
           "img": videoEditingGif, 
-          "samples": [social1] 
+          "samples": [travellars,social1] 
       },
       { 
           "title": "Green Screen (Chroma Keying)", 
