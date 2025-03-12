@@ -16,7 +16,7 @@ import travellars from "../assets/Travellars.mp4";
 import motiongraphic from "../assets/Motiongraphic.mp4";
 import modeling from "../assets/modeling.mp4";
 import D2 from "../assets/advertise.mp4";
-import documentary from "../assets/Documentary100.gif";
+import documentary from "../assets/Documentry100.gif";
 import modelinggif from "../assets/Modeling.gif";
 import soc from "../assets/soc.gif";
 import digi from "../assets/digi.gif";
