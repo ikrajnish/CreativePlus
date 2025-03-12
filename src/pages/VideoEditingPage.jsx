@@ -11,8 +11,8 @@ import ads2 from "../assets/video5.mp4";
 import podcast from "../assets/PodcastEdit.mp4";
 import revVideo from "../assets/RSAReviewVideoedit.mp4";
 import motion from "../assets/motion.mp4";
-import travels from "../assets/travelsvideoEdit.mp4";
-import travellars from "../assets/travellars.mp4";
+import travels from "../assets/TravelsvideoEdit.mp4";
+import travellars from "../assets/Travellars.mp4";
 import motiongraphic from "../assets/motiongraphic.mp4";
 import modeling from "../assets/modeling.mp4";
 export function VideoEditingPage() {
