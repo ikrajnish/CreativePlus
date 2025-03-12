@@ -15,7 +15,10 @@ import travels from "../assets/TravelsvideoEdit.mp4";
 import travellars from "../assets/Travellars.mp4";
 import motiongraphic from "../assets/Motiongraphic.mp4";
 import modeling from "../assets/modeling.mp4";
-import D2 from "../assets/advertise.mp4"
+import D2 from "../assets/advertise.mp4";
+import documentary from "../assets/Documentary100.gif";
+import modelinggif from "../assets/Modeling.gif";
+import soc from "../assets/soc.gif"
 export function VideoEditingPage() {
   const [selectedService, setSelectedService] = useState(null);
 
@@ -25,13 +28,13 @@ export function VideoEditingPage() {
       { 
           "title": "Captions & Subtitles", 
           "desc": "Adding accurate and well-timed captions for better accessibility and engagement.", 
-          "img": videoEditingGif, 
+          "img": soc, 
           "samples": [cinematic1, cinematic2] 
       },
       { 
           "title": "Documentary & Storytelling", 
           "desc": "Crafting compelling narratives with seamless editing to bring stories to life.", 
-          "img": videoEditingGif, 
+          "img": documentary, 
           "samples": [corporate1,podcast] 
       },
       { 
@@ -43,7 +46,7 @@ export function VideoEditingPage() {
       { 
           "title": "Motion Graphics & 3D Elements", 
           "desc": "Enhancing videos with dynamic animations, 3D elements, and eye-catching visuals.", 
-          "img": videoEditingGif, 
+          "img": modelinggif, 
           "samples": [motion,motiongraphic] 
       },
       { 
@@ -55,13 +58,13 @@ export function VideoEditingPage() {
       { 
           "title": "Visual Effects (VFX) & Motion Tracking", 
           "desc": "Adding advanced VFX, CGI, and motion tracking for immersive video experiences.", 
-          "img": videoEditingGif, 
+          "img": modelinggif, 
           "samples": [modeling,cinematic1, cinematic2] 
       },
       { 
           "title": "Sound Design, Editing & SFX", 
           "desc": "Creating high-quality audio experiences with professional sound design and effects.", 
-          "img": videoEditingGif, 
+          "img": soc, 
           "samples": [corporate1] 
       },
       { 
@@ -79,7 +82,7 @@ export function VideoEditingPage() {
       { 
           "title": "Ads & Promotional Videos", 
           "desc": "Producing high-quality ads optimized for engagement and brand promotion.", 
-          "img": videoEditingGif, 
+          "img": soc, 
           "samples": [ads1,ads2,D2] 
       }
   
