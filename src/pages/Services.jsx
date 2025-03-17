@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import graphicDesignVideo from '../assets/graphic-design.gif';
 import videoEditingVideo from '../assets/video-editing.gif';
 import animationVideo from '../assets/animation.gif';
-import modeling from "../assets/modeling.mp4";
+import modeling from "../assets/modeling.gif";
 import webDesignVideo from '../assets/web-design.gif';
 import digitalMarketingVideo from '../assets/digital-marketing.gif';
 
