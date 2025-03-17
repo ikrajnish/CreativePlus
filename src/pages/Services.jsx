@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import graphicDesignVideo from '../assets/graphic-design.gif';
 import videoEditingVideo from '../assets/video-editing.gif';
 import animationVideo from '../assets/animation.gif';
-import modelingVideo from '../assets/modeling.mp4';
+import modeling from "../assets/modeling.mp4";
 import webDesignVideo from '../assets/web-design.gif';
 import digitalMarketingVideo from '../assets/digital-marketing.gif';
 
@@ -18,7 +18,7 @@ export function Services() {
     { title: 'Graphic Designing', description: 'Eye-catching designs for your brand.', media: graphicDesignVideo, link: "/graphic-design" },
     { title: 'Video Editing', description: 'Professional editing to tell your story.', media: videoEditingVideo, link: "/video-editing" },
     { title: '2D & 3D Animation', description: 'Bring your ideas to life with animations.', media: animationVideo, link: "/animation" },
-    { title: '3D Modeling', description: 'Detailed models for various industries.', media: modelingVideo, link: "/3d-modeling" },
+    { title: '3D Modeling', description: 'Detailed models for various industries.', media: modeling, link: "/3d-modeling" },
     { title: 'Web Designing', description: 'Responsive and modern websites.', media: webDesignVideo, link: "/web-development" },
     { title: 'Digital Marketing', description: 'Grow your business with strategic marketing.', media: digitalMarketingVideo, link: "/digital-marketing" }
   ], []);

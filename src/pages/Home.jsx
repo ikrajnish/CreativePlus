@@ -9,6 +9,7 @@ import { Button } from "../components/Button";
 import { RepresentationSection } from "../components/RepresentationSection";
 import { StatsSection } from "../components/StatsSection";
 
+
 export function Home() {
   const services = [
     { name: "Creative Digital Services", description: "Innovative and result-driven solutions to take your business to the next level." },
