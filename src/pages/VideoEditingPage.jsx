@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { Button } from "../components/Button";
+import { ServiceGalleryModal } from "../components/ServiceGalleryModal"; // Import the modal component
 import videoEditingGif from "../assets/video-editing.gif";
 import cinematic1 from "../assets/video3.mp4";
 import cinematic2 from "../assets/video4.mp4";
@@ -20,85 +21,124 @@ import documentary from "../assets/Documentry100.gif";
 import modelinggif from "../assets/Modeling.gif";
 import soc from "../assets/soc.gif";
 import digi from "../assets/digi.gif";
-import seo from "../assets/seo.gif"
+import seo from "../assets/seo.gif";
+
 export function VideoEditingPage() {
   const [selectedService, setSelectedService] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [fullscreenIndex, setFullscreenIndex] = useState(null);
+  const [fullscreenItems, setFullscreenItems] = useState([]);
 
   // Memoized services array for better performance
   const services = useMemo(() => [
-    
-      { 
-          "title": "Captions & Subtitles", 
-          "desc": "Adding accurate and well-timed captions for better accessibility and engagement.", 
-          "img": soc, 
-          "samples": [cinematic1, cinematic2] 
-      },
-      { 
-          "title": "Documentary & Storytelling", 
-          "desc": "Crafting compelling narratives with seamless editing to bring stories to life.", 
-          "img": documentary, 
-          "samples": [corporate1,podcast] 
-      },
-      { 
-          "title": "Events & Wedding Videos", 
-          "desc": "Capturing and editing memorable moments with a cinematic touch.", 
-          "img": videoEditingGif, 
-          "samples": [event1,revVideo] 
-      },
-      { 
-          "title": "Motion Graphics & 3D Elements", 
-          "desc": "Enhancing videos with dynamic animations, 3D elements, and eye-catching visuals.", 
-          "img": modelinggif, 
-          "samples": [motion,motiongraphic] 
-      },
-      { 
-          "title": "Color Correction & Grading", 
-          "desc": "Adjusting and enhancing colors to achieve a natural or cinematic look.", 
-          "img": videoEditingGif, 
-          "samples": [event1,travels] 
-      },
-      { 
-          "title": "Visual Effects (VFX) & Motion Tracking", 
-          "desc": "Adding advanced VFX, CGI, and motion tracking for immersive video experiences.", 
-          "img": modelinggif, 
-          "samples": [modeling,cinematic1, cinematic2] 
-      },
-      { 
-          "title": "Sound Design, Editing & SFX", 
-          "desc": "Creating high-quality audio experiences with professional sound design and effects.", 
-          "img": soc, 
-          "samples": [corporate1] 
-      },
-      { 
-          "title": "Background Music & Noise Reduction", 
-          "desc": "Enhancing videos with mood-based music and removing unwanted noise.", 
-          "img": videoEditingGif, 
-          "samples": [travellars,social1] 
-      },
-      { 
-          "title": "Green Screen (Chroma Keying)", 
-          "desc": "Seamlessly replacing backgrounds for a professional and creative look.", 
-          "img": seo, 
-          "samples": [event1] 
-      },
-      { 
-          "title": "Ads & Promotional Videos", 
-          "desc": "Producing high-quality ads optimized for engagement and brand promotion.", 
-          "img": soc, 
-          "samples": [ads1,ads2,D2] 
-      }
-  
-  
+    { 
+      title: "Captions & Subtitles", 
+      desc: "Adding accurate and well-timed captions for better accessibility and engagement.", 
+      img: soc, 
+      samples: [cinematic1, cinematic2] 
+    },
+    { 
+      title: "Documentary & Storytelling", 
+      desc: "Crafting compelling narratives with seamless editing to bring stories to life.", 
+      img: documentary, 
+      samples: [corporate1, podcast] 
+    },
+    { 
+      title: "Events & Wedding Videos", 
+      desc: "Capturing and editing memorable moments with a cinematic touch.", 
+      img: videoEditingGif, 
+      samples: [event1, revVideo] 
+    },
+    { 
+      title: "Motion Graphics & 3D Elements", 
+      desc: "Enhancing videos with dynamic animations, 3D elements, and eye-catching visuals.", 
+      img: modelinggif, 
+      samples: [motion, motiongraphic] 
+    },
+    { 
+      title: "Color Correction & Grading", 
+      desc: "Adjusting and enhancing colors to achieve a natural or cinematic look.", 
+      img: videoEditingGif, 
+      samples: [event1, travels] 
+    },
+    { 
+      title: "Visual Effects (VFX) & Motion Tracking", 
+      desc: "Adding advanced VFX, CGI, and motion tracking for immersive video experiences.", 
+      img: modelinggif, 
+      samples: [modeling, cinematic1, cinematic2] 
+    },
+    { 
+      title: "Sound Design, Editing & SFX", 
+      desc: "Creating high-quality audio experiences with professional sound design and effects.", 
+      img: soc, 
+      samples: [corporate1] 
+    },
+    { 
+      title: "Background Music & Noise Reduction", 
+      desc: "Enhancing videos with mood-based music and removing unwanted noise.", 
+      img: videoEditingGif, 
+      samples: [travellars, social1] 
+    },
+    { 
+      title: "Green Screen (Chroma Keying)", 
+      desc: "Seamlessly replacing backgrounds for a professional and creative look.", 
+      img: seo, 
+      samples: [event1] 
+    },
+    { 
+      title: "Ads & Promotional Videos", 
+      desc: "Producing high-quality ads optimized for engagement and brand promotion.", 
+      img: soc, 
+      samples: [ads1, ads2, D2] 
+    }
   ], []);
 
-  // Optimized modal open/close handlers
+  // Memoized functions to avoid unnecessary re-renders
   const openModal = useCallback((service) => {
     setSelectedService(service);
+    setIsModalOpen(true);
   }, []);
 
   const closeModal = useCallback(() => {
+    setIsModalOpen(false);
     setSelectedService(null);
+    setFullscreenIndex(null);
+    setFullscreenItems([]);
   }, []);
+
+  const openFullscreen = useCallback((index, items) => {
+    setFullscreenIndex(index);
+    setFullscreenItems(items);
+  }, []);
+
+  const closeFullscreen = useCallback(() => {
+    setFullscreenIndex(null);
+    setFullscreenItems([]);
+  }, []);
+
+  const showNext = useCallback(() => {
+    setFullscreenIndex((prevIndex) => (prevIndex + 1) % fullscreenItems.length);
+  }, [fullscreenItems]);
+
+  const showPrev = useCallback(() => {
+    setFullscreenIndex((prevIndex) => (prevIndex - 1 + fullscreenItems.length) % fullscreenItems.length);
+  }, [fullscreenItems]);
+
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = useCallback((e) => {
+    setTouchStart(e.touches[0].clientX);
+  }, []);
+
+  const handleTouchEnd = useCallback((e) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    if (touchStart - touchEnd > 50) {
+      showNext();
+    } else if (touchStart - touchEnd < -50) {
+      showPrev();
+    }
+  }, [touchStart, touchEnd, showNext, showPrev]);
 
   return (
     <div className="p-6">
@@ -121,7 +161,12 @@ export function VideoEditingPage() {
                 className="p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
                 onClick={() => openModal(service)}
               >
-                <img src={service.img} alt={service.title} className="w-full h-auto object-cover rounded-md mb-4" loading="lazy" />
+                <img 
+                  src={service.img} 
+                  alt={service.title} 
+                  className="w-full h-auto object-cover rounded-md mb-4" 
+                  loading="lazy" 
+                />
                 <strong>{service.title}</strong>
                 <p>{service.desc}</p>
               </div>
@@ -162,40 +207,19 @@ export function VideoEditingPage() {
       </section>
 
       {/* Fullscreen Modal */}
-      {selectedService && (
-        <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
-          <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto relative">
-            
-            {/* Fixed Close Button (X) */}
-            <button 
-              className="fixed top-6 right-11 text-gray-700 hover:text-red-500 text-3xl font-bold z-50"
-              onClick={closeModal}
-            >
-              &times;
-            </button>
-
-            <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
-            <div className="grid grid-cols-1 gap-4">
-              {selectedService.samples.map((sample, index) => (
-                <video 
-                key={index} 
-                src={sample} 
-                controls 
-                className="w-full h-auto max-h-[80vh] object-contain rounded-md"
-              />
-              ))}
-            </div>
-
-            <div className="flex justify-center mt-6">
-              <Button
-                text="Close"
-                className="px-6 py-3 transition-all duration-300"
-                onClick={closeModal}
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      <ServiceGalleryModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        service={selectedService}
+        fullscreenIndex={fullscreenIndex}
+        fullscreenItems={fullscreenItems}
+        openFullscreen={openFullscreen}
+        closeFullscreen={closeFullscreen}
+        showNext={showNext}
+        showPrev={showPrev}
+        handleTouchStart={handleTouchStart}
+        handleTouchEnd={handleTouchEnd}
+      />
     </div>
   );
 }

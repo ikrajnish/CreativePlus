@@ -1,54 +1,34 @@
 import React, { useState, useCallback, memo } from "react";
 import { Button } from "../components/Button";
+import { ServiceGalleryModal } from "../components/ServiceGalleryModal";
 import digitalMarketingGif from "../assets/digital-marketing.gif";
 
 const services = [
-    { 
-        "title": "Search Engine Optimization (SEO)", 
-        "desc": "Optimize your website to rank higher on search engines and drive organic traffic." 
-    },
-    { 
-        "title": "Social Media Marketing (SMM)", 
-        "desc": "Create viral campaigns, build brand awareness, and grow a loyal audience." 
-    },
-    { 
-        "title": "Pay-Per-Click Advertising (PPC)", 
-        "desc": "Run highly targeted ad campaigns for instant traffic and conversions." 
-    },
-    { 
-        "title": "Email Marketing", 
-        "desc": "Engage, nurture, and convert leads with personalized email campaigns." 
-    },
-    { 
-        "title": "Content Marketing", 
-        "desc": "Create compelling blogs, videos, and infographics to attract and engage customers." 
-    },
-    { 
-        "title": "Affiliate & Influencer Marketing", 
-        "desc": "Partner with affiliates and influencers to expand brand credibility and sales." 
-    },
-    { 
-        "title": "Conversion Rate Optimization (CRO)", 
-        "desc": "Improve website performance with A/B testing, CTA optimization, and better user experience." 
-    },
-    { 
-        "title": "Blogging & SEO Content", 
-        "desc": "Write high-quality, SEO-optimized blogs that increase traffic and engagement." 
-    },
-    { 
-        "title": "Video Marketing", 
-        "desc": "Boost brand awareness with YouTube videos, Reels, and Shorts for maximum reach." 
-    },
-    { 
-        "title": "Infographics & Ebooks", 
-        "desc": "Create visually engaging content that informs, educates, and attracts your audience." 
-    }
-
+  { 
+    "title": "Search Engine Optimization (SEO)", 
+    "desc": "Optimize your website to rank higher on search engines and drive organic traffic.",
+    "samples": ["/assets/seo1.jpg", "/assets/seo2.jpg"]
+  },
+  { 
+    "title": "Social Media Marketing (SMM)", 
+    "desc": "Create viral campaigns, build brand awareness, and grow a loyal audience.",
+    "samples": ["/assets/smm1.jpg", "/assets/smm2.jpg"]
+  },
+  { 
+    "title": "Pay-Per-Click Advertising (PPC)", 
+    "desc": "Run highly targeted ad campaigns for instant traffic and conversions.",
+    "samples": ["/assets/ppc1.jpg"]
+  },
+  // ... other services
 ];
 
 const DigitalMarketingPage = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // NEW STATES for Fullscreen viewer
+  const [fullscreenIndex, setFullscreenIndex] = useState(null);
+  const [fullscreenItems, setFullscreenItems] = useState([]);
 
   const openModal = useCallback((service) => {
     setSelectedService(service);
@@ -58,7 +38,34 @@ const DigitalMarketingPage = () => {
   const closeModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedService(null);
+    setFullscreenIndex(null);
+    setFullscreenItems([]);
   }, []);
+
+  // FULLSCREEN HANDLERS:
+  const openFullscreen = (index, items) => {
+    setFullscreenIndex(index);
+    setFullscreenItems(items);
+  };
+
+  const closeFullscreen = () => {
+    setFullscreenIndex(null);
+  };
+
+  const showNext = () => {
+    if (fullscreenIndex !== null && fullscreenItems.length > 0) {
+      setFullscreenIndex((prevIndex) => (prevIndex + 1) % fullscreenItems.length);
+    }
+  };
+
+  const showPrev = () => {
+    if (fullscreenIndex !== null && fullscreenItems.length > 0) {
+      setFullscreenIndex((prevIndex) => (prevIndex - 1 + fullscreenItems.length) % fullscreenItems.length);
+    }
+  };
+
+  const handleTouchStart = () => {};
+  const handleTouchEnd = () => {};
 
   return (
     <div className="p-6">
@@ -68,7 +75,7 @@ const DigitalMarketingPage = () => {
           Dominate the Digital Space
         </h1>
         <p className="text-xl text-slate-700 mb-6 max-w-3xl mx-auto">
-          Supercharge your brand with high-impact digital marketing strategies. From SEO to influencer marketing, we make your brand shine!
+          Supercharge your brand with high-impact digital marketing strategies.
         </p>
       </section>
 
@@ -99,68 +106,26 @@ const DigitalMarketingPage = () => {
         </div>
       </section>
 
-      {/* Modal */}
-      {isModalOpen && selectedService && (
-        <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
-          <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto relative">
-            
-            {/* Fixed Close Button (X) */}
-            <button
-              className="absolute top-4 right-6 text-gray-700 hover:text-red-500 text-3xl font-bold z-50"
-              onClick={closeModal}
-            >
-              &times;
-            </button>
+      {/* Pass ALL required props to Modal */}
+      <ServiceGalleryModal
+        service={selectedService}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        fullscreenIndex={fullscreenIndex}
+        fullscreenItems={fullscreenItems}
+        openFullscreen={openFullscreen}
+        closeFullscreen={closeFullscreen}
+        showNext={showNext}
+        showPrev={showPrev}
+        handleTouchStart={handleTouchStart}
+        handleTouchEnd={handleTouchEnd}
+      />
 
-            <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
-            <div className="grid grid-cols-1 gap-4">
-              {selectedService.samples?.map((sample, index) => (
-                <img 
-                  key={index} 
-                  src={sample} 
-                  alt={`Sample ${index + 1}`} 
-                  loading="lazy" 
-                  className="w-full h-auto object-cover rounded-md" 
-                />
-              ))}
-            </div>
-
-            <div className="flex justify-center mt-6">
-              <Button
-                text="Close"
-                className="px-6 py-3 transition-all duration-300"
-                onClick={closeModal}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Image Showcase Section */}
-      <section className="py-16 fade-in">
-        <div className="container mx-auto px-6 lg:px-20 text-center">
-          <div className="flex justify-center mb-6">
-            <img
-              src={digitalMarketingGif}
-              alt="Digital Marketing"
-              className="w-full max-w-3xl h-80 object-cover rounded-lg shadow-xl"
-              loading="lazy"
-            />
-          </div>
-          <p className="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
-            Dominate your industry with high-converting digital strategies that bring measurable results.
-          </p>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
+      {/* CTA */}
       <section className="py-16 text-center fade-in">
         <h2 className="text-4xl font-bold text-slate-700 mb-6">
           Let's Elevate Your Brand Together
         </h2>
-        <p className="text-lg text-slate-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-          Our team of digital marketing pros is ready to skyrocket your brand’s online presence. Let’s create a strategy that gets real results!
-        </p>
         <Button
           text="Get Started Now"
           onClick={() => (window.location.href = "/contact")}

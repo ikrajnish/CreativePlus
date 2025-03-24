@@ -1,11 +1,11 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense, useCallback } from "react";
 import { Button } from "../components/Button";
+import { ServiceGalleryModal } from "../components/ServiceGalleryModal"; // Import modal
 
 import Animation1 from "../assets/animation.gif";
 import Animation2 from "../assets/animation.gif";
 import Animation3 from "../assets/animation.gif";
 import Animation4 from "../assets/animation.gif";
-
 
 const services = [
   {
@@ -37,19 +37,78 @@ const services = [
 export function AnimationPage() {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [fullscreenIndex, setFullscreenIndex] = useState(null);
+  const [fullscreenItems, setFullscreenItems] = useState([]);
 
+  // Keyboard navigation
   useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden"; // Prevent background scrolling
-    } else {
-      document.body.style.overflow = "auto";
+    const handleKeyDown = (e) => {
+      if (fullscreenIndex !== null) {
+        if (e.key === "ArrowRight") {
+          showNext();
+        } else if (e.key === "ArrowLeft") {
+          showPrev();
+        } else if (e.key === "Escape") {
+          closeFullscreen();
+        }
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [fullscreenIndex, fullscreenItems]);
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const handleTouchStart = (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipeGesture();
+  };
+
+  const handleSwipeGesture = () => {
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0) {
+        showNext();
+      } else {
+        showPrev();
+      }
     }
-    return () => (document.body.style.overflow = "auto");
-  }, [isModalOpen]);
+  };
+
+  const openFullscreen = (index, items) => {
+    setFullscreenIndex(index);
+    setFullscreenItems(items);
+  };
+
+  const closeFullscreen = () => {
+    setFullscreenIndex(null);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedService(null);
+    setFullscreenIndex(null);
+  };
+
+  const showNext = useCallback(() => {
+    setFullscreenIndex((prev) => (prev + 1) % fullscreenItems.length);
+  }, [fullscreenItems]);
+
+  const showPrev = useCallback(() => {
+    setFullscreenIndex((prev) =>
+      (prev - 1 + fullscreenItems.length) % fullscreenItems.length
+    );
+  }, [fullscreenItems]);
 
   return (
     <div className="p-6">
-      {/* Header Section */}
+      {/* Header */}
       <section className="text-center py-12">
         <h1 className="text-5xl font-extrabold text-orange-500 mb-4 drop-shadow-lg">
           Unleash the Power of Animation
@@ -59,10 +118,7 @@ export function AnimationPage() {
         </p>
       </section>
 
-      {/* Animation Overview Section */}
-
-
-      {/* Animation Services Section */}
+      {/* Services */}
       <section className="py-16">
         <div className="container mx-auto px-6 lg:px-20 text-center">
           <h2 className="text-4xl font-bold text-slate-700 mb-6">Our Animation Services</h2>
@@ -91,44 +147,23 @@ export function AnimationPage() {
           </div>
         </div>
       </section>
-      {/* Fullscreen Modal */}
-          {isModalOpen && selectedService && (
-              <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
-                <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto relative">
-      
-            {/* Fixed Close Button (X) */}
-            <button 
-              className="fixed top-6 right-11 text-gray-700 hover:text-red-500 text-3xl font-bold z-50"
-              onClick={closeModal}
-            >
-              &times;
-            </button>
 
-            <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
-            <div className="grid grid-cols-1 gap-4">
-              {selectedService.samples.map((sample, index) => (
-                <img 
-                 key={index} 
-                 src={sample} 
-                 alt={`Sample ${index + 1}`} 
-                 loading="lazy" 
-                 className="w-full h-auto object-cover rounded-md" 
-                />
-          ))}
-          </div>
+      {/* ServiceGalleryModal Component */}
+      <ServiceGalleryModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        service={selectedService}
+        fullscreenIndex={fullscreenIndex}
+        fullscreenItems={fullscreenItems}
+        openFullscreen={openFullscreen}
+        closeFullscreen={closeFullscreen}
+        showNext={showNext}
+        showPrev={showPrev}
+        handleTouchStart={handleTouchStart}
+        handleTouchEnd={handleTouchEnd}
+      />
 
-            <div className="flex justify-center mt-6">
-              <Button
-                text="Close"
-                className="px-6 py-3 transition-all duration-300"
-                onClick={closeModal}
-              />
-            </div>
-          </div>
-        </div>
-    )}
-
-      {/* Image Showcase Section */}
+      {/* Showcase */}
       <section className="py-16 transition-all duration-700 ease-in-out transform hover:scale-105">
         <div className="container mx-auto px-6 lg:px-20 text-center">
           <div className="flex justify-center mb-6">
@@ -147,16 +182,15 @@ export function AnimationPage() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
+      {/* CTA */}
       <section className="py-16 text-center">
         <h2 className="text-4xl font-bold text-slate-700 mb-6">Let’s Animate Your Ideas</h2>
         <p className="text-lg text-slate-700 max-w-3xl mx-auto mb-8 leading-relaxed">
           Our animation experts are ready to bring your creative vision to life with stunning visuals and seamless motion. Let's get started today!
         </p>
         <Button
-          text="Get Started Now"
-          onClick={() => (window.location.href = "/contact")}
-          className="bg-orange-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300"
+          text="Contact Us"
+          className="px-8 py-4 bg-orange-500 text-white rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
         />
       </section>
     </div>

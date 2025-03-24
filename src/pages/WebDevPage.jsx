@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { Button } from "../components/Button";
+import { ServiceGalleryModal } from "../components/ServiceGalleryModal"; // Import the modal component
 import webDevGif from "../assets/web-design.gif";
 import FrontendGif from "../assets/web-design.gif";
 import BackendGif from "../assets/web-design.gif";
@@ -15,6 +16,8 @@ import sample5 from "../assets/web-design.gif";
 export function WebDevPage() {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [fullscreenIndex, setFullscreenIndex] = useState(null);
+  const [fullscreenItems, setFullscreenItems] = useState([]);
 
   // Memoized services array for better performance
   const services = useMemo(() => [
@@ -26,16 +29,52 @@ export function WebDevPage() {
     { title: "CMS Development", desc: "Custom content management systems for efficiency.", img: CmsGif, samples: [sample1, sample4] }
   ], []);
 
-  // Optimized modal open/close handlers
+  // Memoized functions to avoid unnecessary re-renders
   const openModal = useCallback((service) => {
     setSelectedService(service);
     setIsModalOpen(true);
   }, []);
 
   const closeModal = useCallback(() => {
-    setSelectedService(null);
     setIsModalOpen(false);
+    setSelectedService(null);
+    setFullscreenIndex(null);
+    setFullscreenItems([]);
   }, []);
+
+  const openFullscreen = useCallback((index, items) => {
+    setFullscreenIndex(index);
+    setFullscreenItems(items);
+  }, []);
+
+  const closeFullscreen = useCallback(() => {
+    setFullscreenIndex(null);
+    setFullscreenItems([]);
+  }, []);
+
+  const showNext = useCallback(() => {
+    setFullscreenIndex((prevIndex) => (prevIndex + 1) % fullscreenItems.length);
+  }, [fullscreenItems]);
+
+  const showPrev = useCallback(() => {
+    setFullscreenIndex((prevIndex) => (prevIndex - 1 + fullscreenItems.length) % fullscreenItems.length);
+  }, [fullscreenItems]);
+
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = useCallback((e) => {
+    setTouchStart(e.touches[0].clientX);
+  }, []);
+
+  const handleTouchEnd = useCallback((e) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    if (touchStart - touchEnd > 50) {
+      showNext();
+    } else if (touchStart - touchEnd < -50) {
+      showPrev();
+    }
+  }, [touchStart, touchEnd, showNext, showPrev]);
 
   return (
     <div className="p-6">
@@ -58,7 +97,12 @@ export function WebDevPage() {
                 className="p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
                 onClick={() => openModal(service)}
               >
-                <img src={service.img} alt={service.title} className="w-full h-auto object-cover rounded-md mb-4" loading="lazy" />
+                <img 
+                  src={service.img} 
+                  alt={service.title} 
+                  className="w-full h-auto object-cover rounded-md mb-4" 
+                  loading="lazy" 
+                />
                 <strong>{service.title}</strong>
                 <p>{service.desc}</p>
               </div>
@@ -97,38 +141,19 @@ export function WebDevPage() {
       </section>
 
       {/* Fullscreen Modal */}
-      {isModalOpen && selectedService && (
-        <div className="fixed inset-0 bg-gradient-to-br from-orange-200 to-white z-50 flex items-center justify-center p-6">
-          <div className="container mx-auto px-6 lg:px-20 bg-gradient-to-br from-orange-200 to-orange-100 shadow-lg rounded-lg max-h-[90vh] overflow-y-auto relative">
-            {/* Fixed Close Button (X) */}
-            <button 
-              className="fixed top-6 right-11 text-gray-700 hover:text-red-500 text-3xl font-bold z-50"
-              onClick={closeModal}
-            >
-              &times;
-            </button>
-            <h2 className="text-4xl font-bold mb-6 text-center">{selectedService.title} Showcase</h2>
-            <div className="grid grid-cols-1 gap-4">
-              {selectedService.samples.map((sample, index) => (
-                <img 
-                  key={index} 
-                  src={sample} 
-                  alt={`Sample ${index + 1}`} 
-                  loading="lazy" 
-                  className="w-full h-auto object-cover rounded-md" 
-                />
-              ))}
-            </div>
-            <div className="flex justify-center mt-6">
-              <Button
-                text="Close"
-                className="px-6 py-3 transition-all duration-300"
-                onClick={closeModal}
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      <ServiceGalleryModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        service={selectedService}
+        fullscreenIndex={fullscreenIndex}
+        fullscreenItems={fullscreenItems}
+        openFullscreen={openFullscreen}
+        closeFullscreen={closeFullscreen}
+        showNext={showNext}
+        showPrev={showPrev}
+        handleTouchStart={handleTouchStart}
+        handleTouchEnd={handleTouchEnd}
+      />
     </div>
   );
 }
