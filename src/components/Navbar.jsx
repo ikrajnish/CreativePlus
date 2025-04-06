@@ -46,7 +46,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-orange-100 to-orange-200 text-slate-900 py-4 shadow-lg sticky top-0 z-50 backdrop-blur-sm">
+    <nav className="bg-gradient-to-r from-orange-100 to-orange-200 text-slate-700 py-4 shadow-lg sticky top-0 z-50 backdrop-blur-sm">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Logo and Brand Name */}
         <a
@@ -85,7 +85,7 @@ export function Navbar() {
 
         {/* Navigation Links */}
         <ul
-          className={`fixed md:relative top-16 inset-x-0 md:top-auto md:inset-x-auto bg-gradient-to-r from-orange-100 to-orange-200 md:bg-transparent md:shadow-none p-6 md:p-0 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-6 transition-all duration-500 ease-in-out transform ${
+          className={`fixed md:relative top-16 inset-x-0 md:top-auto md:inset-x-auto bg-gradient-to-r md:bg-transparent md:shadow-none p-6 md:p-0 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-6 transition-all duration-500 ease-in-out transform ${
             isOpen
               ? "translate-y-0 opacity-100 visible"
               : "-translate-y-full opacity-0 invisible md:translate-y-0 md:opacity-100 md:visible"
