@@ -22,6 +22,7 @@ import modelinggif from "../assets/Modeling.gif";
 import soc from "../assets/soc.gif";
 import digi from "../assets/digi.gif";
 import seo from "../assets/seo.gif";
+import travellar2 from "../assets/DUBAIRIDE.mp4"
 
 export function VideoEditingPage() {
   const [selectedService, setSelectedService] = useState(null);
@@ -47,7 +48,7 @@ export function VideoEditingPage() {
       title: "Events & Wedding Videos", 
       desc: "Capturing and editing memorable moments with a cinematic touch.", 
       img: videoEditingGif, 
-      samples: [event1, revVideo] 
+      samples: [event1, revVideo,travellar2] 
     },
     { 
       title: "Motion Graphics & 3D Elements", 
