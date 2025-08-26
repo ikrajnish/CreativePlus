@@ -84,7 +84,7 @@ const Description = () => {
             <p className="text-slate-600">New Delhi, Noida, Uttar Pradesh, 201304</p>
             <div className="flex items-center text-slate-600 mt-2">
               <FaPhone className="mr-2 text-orange-500" />
-              <a href="tel:+917250186824" className="hover:text-orange-500 transition">+91 - 9220219521</a>
+              <a href="tel:+919220219521" className="hover:text-orange-500 transition">+91 - 9220219521</a>
             </div>
           </div>
         </div>
